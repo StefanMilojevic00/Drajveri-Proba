@@ -1,0 +1,4 @@
+../Core/Src/AirQuality.c:13:13:ChooseAirQualityZone	24	static
+../Core/Src/AirQuality.c:51:6:GetAirQuality	24	static
+../Core/Src/AirQuality.c:60:7:GetAirQualityError	16	static
+../Core/Src/AirQuality.c:67:6:CreateNewAirQuality	16	static

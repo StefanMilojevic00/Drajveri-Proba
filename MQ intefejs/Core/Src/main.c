@@ -28,7 +28,7 @@
 #include "UART.h"
 
 #include "AirQuality.h"
-#include "LED_Driver.h"
+//#include "LED_Driver.h" TODO: will be added later
 #include "Button.h"
 /* USER CODE END Includes */
 
@@ -85,6 +85,8 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
 float PPM;
+bool test;
+uint16_t nemojmarko = 8;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -111,6 +113,11 @@ float PPM;
   MX_TIM11_Init();
   /* USER CODE BEGIN 2 */
   AlarmInit();
+	struct Button btn_1;
+	CreateNewButton(&btn_1, Btn_pin_GPIO_Port, Btn_pin_Pin);
+	struct AirQuality aq_1;
+	CreateNewAirQuality(&aq_1);
+	uint8_t zone;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -122,8 +129,8 @@ float PPM;
     /* USER CODE BEGIN 3 */
 	  PPM = ReadGasSensor();
 	  char msg1[] = "PPM = ";
-	  UART_TransmitString(msg1);
-	  UART_TransmitFloat(PPM);
+	 // UART_TransmitString(msg1);
+	  //UART_TransmitFloat(PPM);
 	  if(PPM > 2100)
 	  {
 		  AlarmON();
@@ -132,36 +139,48 @@ float PPM;
 	  {
 		  AlarmOFF();
 	  }
-	  HAL_Delay(1000); //Simulating something else
+	  //HAL_Delay(1000); //Simulating something else
 
 	  //################  Manic kod ##################\\
 
 
 		// ************** Button ***************** \\
 
-		struct Button btn_1;
-		CreateNewButton(&btn_1, Btn_pin_GPIO_Port, Btn_pin_Pin);
-		ReadButton(&btn_1, &btn_last_state);
+		//struct Button btn_1;
+		//CreateNewButton(&btn_1, Btn_pin_GPIO_Port, Btn_pin_Pin);
+	  char msgtest[] = "00000000000000000000000000000\r\n";
+	  			UART_TransmitString(msgtest);
+		test = ReadButton(&btn_1, true);
+		if(test)
+		{
+			char msgtest[] = "Button pressed\r\n";
+			UART_TransmitString(msgtest);
+
+		}
 
 		// ************ End Button ***************** \\
 
 		// ************** AirQuality ***************** \\
 
-		struct AirQuality aq_1;
-		CreateNewAirQuality(&aq_1);
-		uint8_t zone;
+		//struct AirQuality aq_1;
+		//CreateNewAirQuality(&aq_1);
+		//uint8_t zone;
 		//GetAirQuality(&aq_1, 9 , &zone);
-
-		bool err = GetAirQuality(&aq_1, 9 , &zone);
+/*
+		bool err = GetAirQuality(&aq_1, &nemojmarko , &zone);
 		if(err != 0)
 		{
-			char* error_mes_for_uart = GetAirQualityError(&aq_1);
-		}
 
-		// ************ End AirQuality ***************** \\
+			char* error_mes_for_uart = GetAirQualityError(&aq_1);
+			UART_TransmitString(error_mes_for_uart);
+
+		}
+		*/
+  }
+
+///////////// ************ End AirQuality *****************
 
 	  //##############################################\\
-  }
   /* USER CODE END 3 */
 }
 

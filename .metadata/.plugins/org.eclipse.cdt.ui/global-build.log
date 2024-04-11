@@ -1,15 +1,132 @@
-14:48:37 **** Incremental Build of configuration Debug for project MQ intefejs ****
+16:41:47 **** Incremental Build of configuration Debug for project MQ intefejs ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/GasSensor.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/GasSensor.d" -MT"Core/Src/GasSensor.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/GasSensor.o"
-arm-none-eabi-gcc "../Core/Src/UART.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/UART.d" -MT"Core/Src/UART.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/UART.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:30:
+../Core/Inc/AirQuality.h:24:17: warning: initialization of 'char **' from incompatible pointer type 'char *' [-Wincompatible-pointer-types]
+   24 |                 "Error Code: [0] < System work well :D > ",
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Inc/AirQuality.h:24:17: note: (near initialization for 'ErrorMessages')
+../Core/Inc/AirQuality.h:25:17: warning: excess elements in scalar initializer
+   25 |                 "Error Code: [1] < Error Message: Data is negative! > ",
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Inc/AirQuality.h:25:17: note: (near initialization for 'ErrorMessages')
+../Core/Inc/AirQuality.h:26:17: warning: excess elements in scalar initializer
+   26 |                 "Error Code: [2] < Error Message: Data is to low! > "
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Inc/AirQuality.h:26:17: note: (near initialization for 'ErrorMessages')
+../Core/Inc/AirQuality.h:34:1: warning: useless storage class specifier in empty declaration
+   34 | };
+      | ^
+In file included from ../Core/Src/main.c:32:
+../Core/Inc/Button.h:61:1: warning: useless storage class specifier in empty declaration
+   61 | };
+      | ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:144:11: warning: multi-line comment [-Wcomment]
+  144 |           //################  Manic kod ##################\\
+      |           ^
+../Core/Src/main.c:147:17: warning: multi-line comment [-Wcomment]
+  147 |                 // ************** Button ***************** \\
+      |                 ^
+../Core/Src/main.c:161:17: warning: multi-line comment [-Wcomment]
+  161 |                 // ************ End Button ***************** \\
+      |                 ^
+../Core/Src/main.c:163:17: warning: multi-line comment [-Wcomment]
+  163 |                 // ************** AirQuality ***************** \\
+      |                 ^
+../Core/Src/main.c:131:16: warning: unused variable 'msg1' [-Wunused-variable]
+  131 |           char msg1[] = "PPM = ";
+      |                ^~~~
+../Core/Src/main.c:182:11: warning: multi-line comment [-Wcomment]
+  182 |           //##############################################\\
+      |           ^
+../Core/Inc/AirQuality.h: At top level:
+../Core/Inc/AirQuality.h:36:13: warning: 'ChooseAirQualityZone' declared 'static' but never defined [-Wunused-function]
+   36 | static void ChooseAirQualityZone(struct AirQuality* air_quality_instance, uint16_t* index_value);
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Core/Inc/AirQuality.h:23:15: warning: 'ErrorMessages' defined but not used [-Wunused-variable]
+   23 | static char** ErrorMessages = {
+      |               ^~~~~~~~~~~~~
 arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Stevan.Milojevic\Desktop\DrajveriProba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: MQ intefejs.elf
  
 arm-none-eabi-size  MQ\ intefejs.elf 
 arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
    text	   data	    bss	    dec	    hex	filename
-  40532	    476	   2236	  43244	   a8ec	MQ intefejs.elf
+  41284	    480	   2232	  43996	   abdc	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+16:41:51 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-size  MQ\ intefejs.elf 
+   text	   data	    bss	    dec	    hex	filename
+  41284	    480	   2232	  43996	   abdc	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+16:43:13 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/main.c:30:
+../Core/Inc/AirQuality.h:24:17: warning: initialization of 'char **' from incompatible pointer type 'char *' [-Wincompatible-pointer-types]
+   24 |                 "Error Code: [0] < System work well :D > ",
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Inc/AirQuality.h:24:17: note: (near initialization for 'ErrorMessages')
+../Core/Inc/AirQuality.h:25:17: warning: excess elements in scalar initializer
+   25 |                 "Error Code: [1] < Error Message: Data is negative! > ",
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Inc/AirQuality.h:25:17: note: (near initialization for 'ErrorMessages')
+../Core/Inc/AirQuality.h:26:17: warning: excess elements in scalar initializer
+   26 |                 "Error Code: [2] < Error Message: Data is to low! > "
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Inc/AirQuality.h:26:17: note: (near initialization for 'ErrorMessages')
+../Core/Inc/AirQuality.h:34:1: warning: useless storage class specifier in empty declaration
+   34 | };
+      | ^
+In file included from ../Core/Src/main.c:32:
+../Core/Inc/Button.h:61:1: warning: useless storage class specifier in empty declaration
+   61 | };
+      | ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:144:11: warning: multi-line comment [-Wcomment]
+  144 |           //################  Manic kod ##################\\
+      |           ^
+../Core/Src/main.c:147:17: warning: multi-line comment [-Wcomment]
+  147 |                 // ************** Button ***************** \\
+      |                 ^
+../Core/Src/main.c:161:17: warning: multi-line comment [-Wcomment]
+  161 |                 // ************ End Button ***************** \\
+      |                 ^
+../Core/Src/main.c:163:17: warning: multi-line comment [-Wcomment]
+  163 |                 // ************** AirQuality ***************** \\
+      |                 ^
+../Core/Src/main.c:131:16: warning: unused variable 'msg1' [-Wunused-variable]
+  131 |           char msg1[] = "PPM = ";
+      |                ^~~~
+../Core/Src/main.c:183:11: warning: multi-line comment [-Wcomment]
+  183 |           //##############################################\\
+      |           ^
+../Core/Src/main.c:120:17: warning: unused variable 'zone' [-Wunused-variable]
+  120 |         uint8_t zone;
+      |                 ^~~~
+../Core/Src/main.c:89:10: warning: unused variable 'nemojmarko' [-Wunused-variable]
+   89 | uint16_t nemojmarko = 8;
+      |          ^~~~~~~~~~
+../Core/Inc/AirQuality.h: At top level:
+../Core/Inc/AirQuality.h:36:13: warning: 'ChooseAirQualityZone' declared 'static' but never defined [-Wunused-function]
+   36 | static void ChooseAirQualityZone(struct AirQuality* air_quality_instance, uint16_t* index_value);
+      |             ^~~~~~~~~~~~~~~~~~~~
+../Core/Inc/AirQuality.h:23:15: warning: 'ErrorMessages' defined but not used [-Wunused-variable]
+   23 | static char** ErrorMessages = {
+      |               ^~~~~~~~~~~~~
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Stevan.Milojevic\Desktop\DrajveriProba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  40988	    480	   2232	  43700	   aab4	MQ intefejs.elf
 Finished building: default.size.stdout
  
 Finished building: MQ intefejs.list

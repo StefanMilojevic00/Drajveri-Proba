@@ -12,7 +12,7 @@ void CreateNewButton(struct Button* button_instance, GPIO_TypeDef* GPIOx, uint16
     button_instance->read_button_flag = false;
     button_instance->btn_press_detect_flag = false;
     button_instance->btn_last_state = GPIO_PIN_RESET;
-    button_instance->active_state = GPIO_PIN_RESET;
+    button_instance->active_state = GPIO_PIN_SET;
     button_instance->GPIOx = GPIOx;
     button_instance->GPIO_Pin = GPIO_Pin;
 
@@ -20,24 +20,25 @@ void CreateNewButton(struct Button* button_instance, GPIO_TypeDef* GPIOx, uint16
 }
 
 
-bool ReadButton(struct Button* button_instance, bool* readEnable)
+bool ReadButton(struct Button* button_instance, bool readEnable)
 {
-    if (*readEnable)
+    if (readEnable)
     {
         GPIO_PinState read_pin_status = HAL_GPIO_ReadPin(button_instance->GPIOx, button_instance->GPIO_Pin);
 
         switch (button_instance->button_state) {
             case B_IDLE:
-                if (read_pin_status == button_instance->active_state) {
-                	 button_instance->button_state = B_DEBOUNCE;
+                if (read_pin_status == button_instance->active_state)
+                {
+                	button_instance->button_state = B_DEBOUNCE;
                     button_instance->btn_press_detect_flag = false;
                 }
                 break;
 
             case B_DEBOUNCE:
-            	 button_instance->button_state = B_DETECT;
+            	button_instance->button_state = B_DETECT;
                 button_instance->btn_press_detect_flag = true;
-                button_instance->btn_press_detect_flag = false;
+              //  button_instance->btn_press_detect_flag = false;
                 break;
 
             case B_DETECT:
@@ -45,7 +46,7 @@ bool ReadButton(struct Button* button_instance, bool* readEnable)
                     button_instance->btn_press_flag = true;
                     button_instance->btn_last_state = read_pin_status;
                     button_instance->btn_press_detect_flag = true;
-                    *readEnable = false;
+                    readEnable = false;
                 }
                 button_instance->button_state = B_DETECT_IDLE;
                 break;
