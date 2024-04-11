@@ -1,0 +1,2 @@
+../Core/Src/GasSensor.c:16:6:InitGasSenosor	4	static
+../Core/Src/GasSensor.c:21:7:ReadGasSensor	16	static

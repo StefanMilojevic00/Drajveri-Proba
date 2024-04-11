@@ -1,0 +1,12 @@
+/*
+ * Buzzer.c
+ *
+ *  Created on: Apr 11, 2024
+ *      Author: Stefan.Milojevic
+ */
+
+#include "Buzzer.h"
+
+extern uint16_t Buzzer_out_pin;
+
+

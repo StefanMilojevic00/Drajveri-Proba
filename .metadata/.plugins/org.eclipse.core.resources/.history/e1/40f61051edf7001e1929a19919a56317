@@ -1,0 +1,13 @@
+/*
+ * AlarmSystem.c
+ *
+ *  Created on: Apr 11, 2024
+ *      Author: Stefan.Milojevic
+ */
+
+#include "AlarmSystem.h"
+#include "Buzzer.h"
+
+extern GPIO_TypeDef Buzzer_out_GPIO_Port;
+
+
