@@ -26,6 +26,10 @@
 #include "GasSensor.h"
 #include "AlarmSystem.h"
 #include "UART.h"
+
+#include "AirQuality.h"
+#include "LED_Driver.h"
+#include "Button.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -129,6 +133,34 @@ float PPM;
 		  AlarmOFF();
 	  }
 	  HAL_Delay(1000); //Simulating something else
+
+	  //################  Manic kod ##################\\
+
+
+		// ************** Button ***************** \\
+
+		struct Button btn_1;
+		CreateNewButton(&btn_1, Btn_pin_GPIO_Port, Btn_pin_Pin);
+		ReadButton(&btn_1, &btn_last_state);
+
+		// ************ End Button ***************** \\
+
+		// ************** AirQuality ***************** \\
+
+		struct AirQuality aq_1;
+		CreateNewAirQuality(&aq_1);
+		uint8_t zone;
+		//GetAirQuality(&aq_1, 9 , &zone);
+
+		bool err = GetAirQuality(&aq_1, 9 , &zone);
+		if(err != 0)
+		{
+			char* error_mes_for_uart = GetAirQualityError(&aq_1);
+		}
+
+		// ************ End AirQuality ***************** \\
+
+	  //##############################################\\
   }
   /* USER CODE END 3 */
 }

@@ -84,8 +84,8 @@ all: main-build
 main-build: MQ\ intefejs.elf secondary-outputs
 
 # Tool invocations
-MQ\ intefejs.elf MQ\ intefejs.map: $(OBJS) $(USER_OBJS) C:\Users\Stevan.Milojevic\Desktop\DrajveriProba\MQ\ intefejs\STM32F750N8HX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\Stevan.Milojevic\Desktop\DrajveriProba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+MQ\ intefejs.elf MQ\ intefejs.map: $(OBJS) $(USER_OBJS) C:\Users\Marko.Mandic\Desktop\Projekat_1\ \ Update\Drajveri-Proba\MQ\ intefejs\STM32F750N8HX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
