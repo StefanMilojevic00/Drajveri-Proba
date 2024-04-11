@@ -1,0 +1,2 @@
+../Core/Src/Button.c:9:6:CreateNewButton	24	static
+../Core/Src/Button.c:23:6:ReadButton	24	static

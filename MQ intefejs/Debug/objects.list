@@ -1,4 +1,6 @@
+"./Core/Src/AirQuality.o"
 "./Core/Src/AlarmSystem.o"
+"./Core/Src/Button.o"
 "./Core/Src/Buzzer.o"
 "./Core/Src/GasSensor.o"
 "./Core/Src/MQ9FlyingFish.o"
