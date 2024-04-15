@@ -13,7 +13,7 @@
 //Structure for holding pinout configuration
 typedef struct
 {
-	GPIO_TypeDef *gpioPort; //GPIO port fot Buzzer
+	GPIO_TypeDef *gpioPort; //GPIO port for Buzzer
 	uint16_t gpioPin; //Buzzer analog pin
 } Buzzer_t;
 

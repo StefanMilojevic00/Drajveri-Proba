@@ -1,0 +1,123 @@
+/*
+ * TopLayer.c
+ *
+ *  Created on: Apr 12, 2024
+ *      Author: Stefan.Milojevic
+ */
+#include <stdbool.h>
+#include "TopLayer.h"
+
+#define DangerousPPM 2200
+
+bool* readFlag;
+*readFlag = true;
+
+struct Counters{
+	const uint16_t time_button; // 3 sec
+	volatile uint16_t time_uart_send;
+	const uint16_t time_led_correct_on; // 1 sec
+	const uint16_t time_led_incorrect_on; // 0.5 sec
+	const uint16_t time_led_off; // 3 sec
+	const uint16_t time_clear_room; //3 sec
+
+	volatile uint16_t cnt_button;
+	volatile uint16_t cnt_uart_send;
+	volatile uint16_t cnt_led_correct_on;
+	volatile uint16_t cnt_led_incorrect_on;
+	volatile uint16_t cnt_led_off;
+	volatile uint16_t cnt_clear_room;
+
+	volatile uint16_t btn_cnt_press;
+	// LED
+	volatile bool led_start_flag;
+	volatile bool led_overflow_flag;
+	// BUTTON
+	volatile bool btn_cnt_reset;
+	volatile bool btn_polling_flag;
+	volatile bool read_button_flag;
+
+	volatile bool room_not_safe;
+};
+
+
+struct Counters cnt_1 = {
+	.time_button = 300,
+	.time_uart_send = 100,
+	.time_led_correct_on = 100,
+	.time_led_incorrect_on = 50,
+	.time_led_off = 300,
+	.time_clear_room =  300,
+	.cnt_button = 0,
+	.cnt_uart_send = 0,
+	.cnt_led_correct_on = 0,
+	.cnt_led_incorrect_on = 0,
+	.cnt_led_off = 0,
+	.cnt_clear_room = 0,
+	.btn_cnt_press = 0,
+	.btn_cnt_reset = false,
+	.btn_polling_flag = false,
+	.read_button_flag = false,
+	.led_start_flag = false,
+	.led_overflow_flag = false,
+	.room_not_safe = false,
+};
+
+static volatile bool update_flag = false;
+static volatile bool btn_press_flag = false;
+static volatile bool correct_led = false;
+static volatile bool btn_press_detect_flag = false;
+static volatile bool Tick = false;
+
+void AppInit()
+{
+	AlarmInit();
+	//InitGasSenosor();
+}
+
+void AppWork(bool* Tick)
+{
+	if(*Tick)
+	{
+		*Tick = false;
+
+		if((cnt_1.cnt_clear_room >= cnt_1.time_clear_room) && (cnt_1.room_not_safe))
+		{
+			AlarmOFF();
+			char msg[] = "Prostor cist, bezbedno je vratiti se\r\n";
+			UART_TransmitString(msg);
+			cnt_1.cnt_clear_room = 0;
+			cnt_1.room_not_safe = false;
+		}
+		else
+		{
+			cnt_1.cnt_clear_room++;
+		}
+
+		cnt_1.read_button_flag = true;
+		ReadSignal(&readFlag);
+		if((cnt_1.cnt_button < cnt_1.time_button)) //dodati flag kad dugme bude pritisnuto	i work mode
+		{
+			if(btn_press_detect_flag == true)
+				cnt_1.cnt_button++;
+			if(btn_press_flag == true)
+			{
+				cnt_1.btn_cnt_press++;
+				btn_press_flag = false;
+			}
+
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

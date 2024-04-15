@@ -12,7 +12,7 @@ void CreateNewButton(struct Button* button_instance, GPIO_TypeDef* GPIOx, uint16
     button_instance->read_button_flag = false;
     button_instance->btn_press_detect_flag = false;
     button_instance->btn_last_state = GPIO_PIN_RESET;
-    button_instance->active_state = GPIO_PIN_RESET;
+    button_instance->active_state = GPIO_PIN_SET;
     button_instance->GPIOx = GPIOx;
     button_instance->GPIO_Pin = GPIO_Pin;
 
@@ -35,7 +35,7 @@ bool ReadButton(struct Button* button_instance, bool* readEnable)
                 break;
 
             case B_DEBOUNCE:
-            	 button_instance->button_state = B_DETECT;
+            	button_instance->button_state = B_DETECT;
                 button_instance->btn_press_detect_flag = true;
                 button_instance->btn_press_detect_flag = false;
                 break;

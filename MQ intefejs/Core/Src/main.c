@@ -23,12 +23,8 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include <string.h>
-#include "GasSensor.h"
-#include "AlarmSystem.h"
-#include "UART.h"
-
-#include "AirQuality.h"
-#include "LED_Driver.h"
+#include "TopLayer.h"
+//#include "LED_Driver.h"
 #include "Button.h"
 /* USER CODE END Includes */
 
@@ -85,6 +81,7 @@ int main(void)
 
   /* USER CODE BEGIN 1 */
 float PPM;
+bool* MarkoFlag = true;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -110,7 +107,12 @@ float PPM;
   MX_USART1_UART_Init();
   MX_TIM11_Init();
   /* USER CODE BEGIN 2 */
-  AlarmInit();
+//  AlarmInit();
+//  SignalSystemInit();
+  AppInit();
+
+  HAL_TIM_Base_Start_IT(&htim11);
+  //AppStart();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -132,35 +134,45 @@ float PPM;
 	  {
 		  AlarmOFF();
 	  }
-	  HAL_Delay(1000); //Simulating something else
+
+	  SetIndicatorLEDs(PPM);
+	  HAL_Delay(1000);
+
+//	  //SignalSystemTest:
+//	  bool Test = ReadSignal(&MarkoFlag);
+//	  if(Test)
+//	  {
+//		  char msg[] = "Button pressed!\r\n";
+//		  UART_TransmitString(msg);
+//	  }
+	  //HAL_Delay(1000); //Simulating something else
 
 	  //################  Manic kod ##################\\
 
 
 		// ************** Button ***************** \\
 
-		struct Button btn_1;
-		CreateNewButton(&btn_1, Btn_pin_GPIO_Port, Btn_pin_Pin);
-		ReadButton(&btn_1, &btn_last_state);
+		//ReadButton(&btn_1, &btn_last_state);
 
 		// ************ End Button ***************** \\
 
 		// ************** AirQuality ***************** \\
 
-		struct AirQuality aq_1;
-		CreateNewAirQuality(&aq_1);
-		uint8_t zone;
+		//struct AirQuality aq_1;
+		//CreateNewAirQuality(&aq_1);
+		//uint8_t zone;
 		//GetAirQuality(&aq_1, 9 , &zone);
 
-		bool err = GetAirQuality(&aq_1, 9 , &zone);
-		if(err != 0)
-		{
-			char* error_mes_for_uart = GetAirQualityError(&aq_1);
-		}
+		//bool err = GetAirQuality(&aq_1, 9 , &zone);
+		//if(err != 0)
+		//{
+			//char* error_mes_for_uart = GetAirQualityError(&aq_1);
+		//}
 
 		// ************ End AirQuality ***************** \\
 
 	  //##############################################\\
+
   }
   /* USER CODE END 3 */
 }
@@ -395,10 +407,13 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(IndicatorYellow2_GPIO_Port, IndicatorYellow2_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(OTG_FS_PowerSwitchOn_GPIO_Port, OTG_FS_PowerSwitchOn_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOI, Led_out_Pin|Buzzer_out_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOI, Led_out_Pin|Buzzer_out_Pin|IndicatorBlue2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LCD_BL_CTRL_GPIO_Port, LCD_BL_CTRL_Pin, GPIO_PIN_SET);
@@ -407,10 +422,13 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(LCD_DISP_GPIO_Port, LCD_DISP_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(DCMI_PWR_EN_GPIO_Port, DCMI_PWR_EN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOH, DCMI_PWR_EN_Pin|IndicatorBlue3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOG, ARDUINO_D4_Pin|ARDUINO_D2_Pin|EXT_RST_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(IndicatorGreen_GPIO_Port, IndicatorGreen_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOG, IndicatorBlue1_Pin|IndicatorYellow1_Pin|EXT_RST_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : LCD_B0_Pin */
   GPIO_InitStruct.Pin = LCD_B0_Pin;
@@ -462,13 +480,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : ARDUINO_PWM_D3_Pin */
-  GPIO_InitStruct.Pin = ARDUINO_PWM_D3_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  /*Configure GPIO pin : IndicatorYellow2_Pin */
+  GPIO_InitStruct.Pin = IndicatorYellow2_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
-  HAL_GPIO_Init(ARDUINO_PWM_D3_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(IndicatorYellow2_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : SPDIF_RX0_Pin */
   GPIO_InitStruct.Pin = SPDIF_RX0_Pin;
@@ -615,8 +632,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF13_DCMI;
   HAL_GPIO_Init(DCMI_D5_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : Led_out_Pin Buzzer_out_Pin */
-  GPIO_InitStruct.Pin = Led_out_Pin|Buzzer_out_Pin;
+  /*Configure GPIO pins : Led_out_Pin Buzzer_out_Pin IndicatorBlue2_Pin */
+  GPIO_InitStruct.Pin = Led_out_Pin|Buzzer_out_Pin|IndicatorBlue2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -715,14 +732,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF13_DCMI;
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : ARDUINO_PWM_CS_D5_Pin */
-  GPIO_InitStruct.Pin = ARDUINO_PWM_CS_D5_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF2_TIM5;
-  HAL_GPIO_Init(ARDUINO_PWM_CS_D5_GPIO_Port, &GPIO_InitStruct);
-
   /*Configure GPIO pin : Btn_pin_Pin */
   GPIO_InitStruct.Pin = Btn_pin_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -743,13 +752,20 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(LCD_INT_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : ARDUINO_RX_D0_Pin ARDUINO_TX_D1_Pin */
-  GPIO_InitStruct.Pin = ARDUINO_RX_D0_Pin|ARDUINO_TX_D1_Pin;
+  /*Configure GPIO pin : ARDUINO_RX_D0_Pin */
+  GPIO_InitStruct.Pin = ARDUINO_RX_D0_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   GPIO_InitStruct.Alternate = GPIO_AF8_USART6;
-  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+  HAL_GPIO_Init(ARDUINO_RX_D0_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : IndicatorGreen_Pin */
+  GPIO_InitStruct.Pin = IndicatorGreen_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(IndicatorGreen_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : FMC_SDNME_Pin FMC_SDNE0_Pin */
   GPIO_InitStruct.Pin = FMC_SDNME_Pin|FMC_SDNE0_Pin;
@@ -759,10 +775,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF12_FMC;
   HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : ARDUINO_D4_Pin ARDUINO_D2_Pin EXT_RST_Pin */
-  GPIO_InitStruct.Pin = ARDUINO_D4_Pin|ARDUINO_D2_Pin|EXT_RST_Pin;
+  /*Configure GPIO pins : IndicatorBlue1_Pin IndicatorYellow1_Pin */
+  GPIO_InitStruct.Pin = IndicatorBlue1_Pin|IndicatorYellow1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
@@ -797,6 +813,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   GPIO_InitStruct.Alternate = GPIO_AF9_QUADSPI;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : EXT_RST_Pin */
+  GPIO_InitStruct.Pin = EXT_RST_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(EXT_RST_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : RMII_RXER_Pin */
   GPIO_InitStruct.Pin = RMII_RXER_Pin;
@@ -836,13 +859,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Alternate = GPIO_AF10_OTG_HS;
   HAL_GPIO_Init(ULPI_D3_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : ARDUINO_PWM_D6_Pin */
-  GPIO_InitStruct.Pin = ARDUINO_PWM_D6_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  /*Configure GPIO pin : IndicatorBlue3_Pin */
+  GPIO_InitStruct.Pin = IndicatorBlue3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF9_TIM12;
-  HAL_GPIO_Init(ARDUINO_PWM_D6_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(IndicatorBlue3_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : ARDUINO_MISO_D12_Pin ARDUINO_MOSI_PWM_D11_Pin */
   GPIO_InitStruct.Pin = ARDUINO_MISO_D12_Pin|ARDUINO_MOSI_PWM_D11_Pin;

@@ -1,0 +1,19 @@
+/*
+ * SignalSystem.c
+ *
+ *  Created on: Apr 12, 2024
+ *      Author: Stefan.Milojevic
+ */
+
+#include "SignalSystem.h"
+#include "Button.h"
+
+struct Button button;
+
+void SignalSystemInit()
+{
+	CreateNewButton(struct Button* button_instance, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
+}
+
+
+

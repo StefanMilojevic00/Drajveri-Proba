@@ -61,7 +61,7 @@ static struct Button{
 };
 
 void CreateNewButton(struct Button* button_instance, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
-void ButtonInit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
+//void ButtonInit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
 bool ReadButton(struct Button* button_instance, bool* readEnable);
 
 #endif /* INC_BUTTON_H_ */

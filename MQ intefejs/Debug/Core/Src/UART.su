@@ -1,2 +1,2 @@
-../Core/Src/UART.c:14:6:UART_TransmitString	16	static
-../Core/Src/UART.c:19:6:UART_TransmitFloat	72	static
+../Core/Src/UART.c:14:6:UART_TransmitString	24	static
+../Core/Src/UART.c:21:6:UART_TransmitFloat	72	static

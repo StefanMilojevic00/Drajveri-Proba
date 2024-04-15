@@ -1,0 +1,2 @@
+../Core/Src/LedRow.c:10:6:LedRowInit	24	static
+../Core/Src/LedRow.c:38:6:LedRowWrite	16	static

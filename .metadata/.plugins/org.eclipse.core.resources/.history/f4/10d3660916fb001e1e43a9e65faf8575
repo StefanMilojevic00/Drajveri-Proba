@@ -1,0 +1,165 @@
+/*
+ * TopLayer.c
+ *
+ *  Created on: Apr 12, 2024
+ *      Author: Stefan.Milojevic
+ */
+#include <stdbool.h>
+#include <stdint.h>
+#include "TopLayer.h"
+
+#define DangerousPPM 2200
+
+extern TIM_HandleTypeDef htim11;
+
+volatile bool readFlag = true;
+//Messages for sending
+char IdleMSG[] = "Sistem ceka na konfiguraciju:";
+char PPM_MSG[] = "PPM = ";
+
+
+struct Counters{
+	const uint16_t time_button; // 3 sec
+	volatile uint16_t time_uart_send;
+	const uint16_t time_led_correct_on; // 1 sec
+	const uint16_t time_led_incorrect_on; // 0.5 sec
+	const uint16_t time_led_off; // 3 sec
+	const uint16_t time_clear_room; //3 sec
+
+	volatile uint16_t cnt_button;
+	volatile uint16_t cnt_uart_send;
+	volatile uint16_t cnt_led_correct_on;
+	volatile uint16_t cnt_led_incorrect_on;
+	volatile uint16_t cnt_led_off;
+	volatile uint16_t cnt_clear_room;
+
+	volatile uint16_t btn_cnt_press;
+	// LED
+	volatile bool led_start_flag;
+	volatile bool led_overflow_flag;
+	// BUTTON
+	volatile bool btn_cnt_reset;
+	volatile bool btn_polling_flag;
+	volatile bool read_button_flag;
+
+	volatile bool room_not_safe;
+};
+
+
+struct Counters cnt_1 = {
+	.time_button = 300,
+	.time_uart_send = 100,
+	.time_led_correct_on = 100,
+	.time_led_incorrect_on = 50,
+	.time_led_off = 300,
+	.time_clear_room =  300,
+	.cnt_button = 0,
+	.cnt_uart_send = 0,
+	.cnt_led_correct_on = 0,
+	.cnt_led_incorrect_on = 0,
+	.cnt_led_off = 0,
+	.cnt_clear_room = 0,
+	.btn_cnt_press = 0,
+	.btn_cnt_reset = false,
+	.btn_polling_flag = false,
+	.read_button_flag = false,
+	.led_start_flag = false,
+	.led_overflow_flag = false,
+	.room_not_safe = false,
+};
+
+static volatile bool update_flag = false;
+static volatile bool btn_press_flag = false;
+static volatile bool correct_led = false;
+static volatile bool btn_press_detect_flag = false;
+static volatile bool Tick = false;
+
+static bool sent = false;
+static float PPM;
+
+//Counters to check clearing of a room after leakage
+static const uint16_t timeToClearRoom = 200; //2 sec
+static uint16_t cntClearRoom;
+static bool roomSafe = false;
+
+//Counters to check button status:
+static const uint16_t timeButton = 300; //3sec
+static uint16_t buttonPressCounter = 0;
+static uint16_t timeCountButton = 0;
+static uint8_t Work5Counter = 0;
+
+//Counters to check UART refresh rate
+static uint16_t refreshRate = 0;
+
+void AppInit()
+{
+	AlarmInit();
+	SignalSystemInit();
+	//InitGasSenosor();
+}
+
+void AppStart()
+{
+//	if(*Tick)
+//	{
+//		*Tick = false;
+//
+//		if((cntClearRoom >= timeToClearRoom) && (roomSafe))
+//		{
+//			AlarmOFF();
+//			char msg[] = "Prostor cist, bezbedno je vratiti se\r\n";
+//			UART_TransmitString(msg);
+//			cntClearRoom = 0;
+//			roomSafe = false;
+//		}
+//		else
+//		{
+//			cntClearRoom++;
+//		}
+//
+//		bool buttonStatus = ReadSignal(&readFlag);
+//		if(buttonStatus)
+//		{
+//
+//		}
+//
+//
+//	}
+
+	while(1)
+	{
+
+	}
+
+	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+	{
+		if(htim == &htim11)
+		{
+			if((cntClearRoom >= timeToClearRoom) && (roomSafe))
+			{
+				AlarmOFF();
+				char msg[] = "Prostor cist, bezbedno je vratiti se\r\n";
+				UART_TransmitString(msg);
+				cntClearRoom = 0;
+				roomSafe = false;
+			}
+			else
+			{
+				cntClearRoom++;
+			}
+		}
+		char str[] = "Prekid se desio";
+		UART_TransmitString(str);
+	}
+
+
+
+
+
+
+
+
+
+
+
+

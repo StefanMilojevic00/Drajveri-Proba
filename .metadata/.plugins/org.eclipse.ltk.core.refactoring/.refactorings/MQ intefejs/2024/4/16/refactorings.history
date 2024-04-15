@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;MQ intefejs/Core/Src/AirQualityIndicator.h&apos; to &apos;AirQualityIndicator.c&apos;" description="Rename resource &apos;AirQualityIndicator.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/AirQualityIndicator.h" name="AirQualityIndicator.c" stamp="1713189860511" updateReferences="true"/>
+</session>

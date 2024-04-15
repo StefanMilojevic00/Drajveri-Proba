@@ -1,0 +1,24 @@
+/*
+ * AirQualityIndicator.h
+ *
+ *  Created on: Apr 15, 2024
+ *      Author: Stefan.Milojevic
+ */
+
+#include "AirQualityIndicator.h"
+#include "LedRow.h"
+
+static ledRow_t loadConfiguration;
+
+void AirQualityIncicatorInit()
+{
+	void LedRowInit(&loadConfiguration,
+					GPIO_TypeDef *gpioPortGreen, uint16_t gpioPinGreen,
+					GPIO_TypeDef *gpioPortYellow1, uint16_t gpioPinYellow1,
+					GPIO_TypeDef *gpioPortYellow2, uint16_t gpioPinYellow2,
+					GPIO_TypeDef *gpioPortBlue1, uint16_t gpioPinBlue1,
+					GPIO_TypeDef *gpioPortBlue2, uint16_t gpioPinBlue2,
+					GPIO_TypeDef *gpioPortBlue3, uint16_t gpioPinBlue3);
+}
+
+

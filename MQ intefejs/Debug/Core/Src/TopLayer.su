@@ -1,0 +1,2 @@
+../Core/Src/TopLayer.c:20:6:AppInit	8	static
+../Core/Src/TopLayer.c:27:6:AppStart	4	static

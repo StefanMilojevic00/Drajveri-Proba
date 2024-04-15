@@ -1,0 +1,16 @@
+/*
+ * TopLayer.c
+ *
+ *  Created on: Apr 12, 2024
+ *      Author: Stefan.Milojevic
+ */
+
+#include "TopLayer.h"
+
+void AppInit()
+{
+	AlarmInit();
+	InitGasSenosor();
+}
+
+
