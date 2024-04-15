@@ -17,6 +17,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <LED_Handler.h>
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -26,7 +27,6 @@
 #include "GasSensor.h"
 #include "AlarmSystem.h"
 #include "UART.h"
-
 #include "AirQuality.h"
 //#include "LED_Driver.h" TODO: will be added later
 #include "Button.h"
@@ -86,7 +86,8 @@ int main(void)
   /* USER CODE BEGIN 1 */
 float PPM;
 bool test;
-uint16_t nemojmarko = 8;
+uint16_t nemojmarko = 300;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -118,6 +119,10 @@ uint16_t nemojmarko = 8;
 	struct AirQuality aq_1;
 	CreateNewAirQuality(&aq_1);
 	uint8_t zone;
+
+
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -127,6 +132,7 @@ uint16_t nemojmarko = 8;
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  /*
 	  PPM = ReadGasSensor();
 	  char msg1[] = "PPM = ";
 	 // UART_TransmitString(msg1);
@@ -166,16 +172,15 @@ uint16_t nemojmarko = 8;
 		//CreateNewAirQuality(&aq_1);
 		//uint8_t zone;
 		//GetAirQuality(&aq_1, 9 , &zone);
-/*
+*/
 		bool err = GetAirQuality(&aq_1, &nemojmarko , &zone);
-		if(err != 0)
-		{
 
-			char* error_mes_for_uart = GetAirQualityError(&aq_1);
-			UART_TransmitString(error_mes_for_uart);
+		char error_mes_for_uart = GetAirQualityError(&aq_1);
 
-		}
-		*/
+		UART_TransmitString(GetAirQualityError(&aq_1));
+
+		HAL_Delay(1000);
+
   }
 
 ///////////// ************ End AirQuality *****************

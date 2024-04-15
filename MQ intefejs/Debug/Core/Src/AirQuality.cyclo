@@ -1,4 +1,5 @@
-../Core/Src/AirQuality.c:13:13:ChooseAirQualityZone	6
-../Core/Src/AirQuality.c:51:6:GetAirQuality	1
-../Core/Src/AirQuality.c:60:7:GetAirQualityError	1
-../Core/Src/AirQuality.c:67:6:CreateNewAirQuality	1
+../Core/Src/AirQuality.c:15:13:ChooseAirQualityZone	6
+../Core/Src/AirQuality.c:53:6:GetAirQuality	1
+../Core/Src/AirQuality.c:63:7:GetAirQualityError	1
+../Core/Src/AirQuality.c:74:6:CreateNewAirQuality	1
+../Core/Src/AirQuality.c:82:7:GetErrorCode	1

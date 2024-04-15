@@ -1,0 +1,73 @@
+/*
+ * LED_Driver.h
+ *
+ *  Created on: Apr 9, 2024
+ *      Author: Marko.Manic
+ */
+
+
+
+#ifndef INC_LED_DRIVER_H_
+#define INC_LED_DRIVER_H_
+
+#include "main.h"
+
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+static struct LED_Timer_Emulator
+{
+	volatile uint16_t cnt_led_correct_on;
+	volatile uint16_t cnt_led_incorrect_on;
+	volatile uint16_t cnt_led_off;
+
+	const uint16_t time_led_correct_on; // 1 sec
+	const uint16_t time_led_incorrect_on; // 0.5 sec
+	const uint16_t time_led_off; // 3 sec
+
+	volatile bool led_start_flag;
+	volatile bool led_overflow_flag;
+
+	volatile bool led_state;
+	volatile bool correct_led;
+
+	volatile bool led_segment_flag;
+
+};
+
+static struct LED_Timer_Emulator cnt_led_1 ={
+	.time_led_correct_on = 100,
+	.time_led_incorrect_on = 50,
+	.time_led_off = 300,
+
+	.cnt_led_correct_on = 0,
+	.cnt_led_incorrect_on = 0,
+	.cnt_led_off = 0,
+
+	.led_start_flag = false,
+	.led_overflow_flag = false,
+
+	.led_state = false,
+	.correct_led = false,
+
+	.led_segment_flag = false,
+
+
+};
+
+typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+static LED_StatusFSM ledStatus = LED_OFF;
+
+
+static void InitSegmentLED();
+static void InitSingleLED();
+static void DriveSegmentLED(uint8_t LED_status);
+static void DriveSignleLED(bool setState);
+static void TimerLED(struct LED_Timer_Emulator* timer);
+
+void InitLED();
+void HandlerLED();
+
+#endif /* INC_LED_DRIVER_H_ */

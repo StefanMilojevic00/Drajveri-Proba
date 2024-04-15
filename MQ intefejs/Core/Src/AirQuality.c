@@ -10,6 +10,8 @@
 // This method set polution zone in function of polution index
 #include "AirQuality.h"
 
+extern char* ErrorMessages[];
+
 static void ChooseAirQualityZone(struct AirQuality* air_quality_instance, uint16_t* index_value)
 {
 	uint16_t index = *index_value;
@@ -56,19 +58,31 @@ bool GetAirQuality(struct AirQuality* air_quality_instance, uint16_t* input_para
 
     return  air_quality_instance->error_flag;
 }
-// This method set error if exist -  it will be implement later
+
+//////////////////  Doesn't work /////////////////////
 char* GetAirQualityError(struct AirQuality* air_quality_instance) {
 
    // strcpy(air_quality_instance->error_message, Error_messages[air_quality_instance->error_code]);
-	air_quality_instance->error_message = ErrorMessages[air_quality_instance->error_code];
-    return air_quality_instance->error_message;
+	char* mess = air_quality_instance->error_message = ErrorMessages[air_quality_instance->error_code];
+
+    //return "Error Code: [0] < System work well :D > \r\n";
+
+	//strcpy(mess, ErrorMessages[air_quality_instance->error_code]);
+	return  mess;
 }
 
 void CreateNewAirQuality(struct AirQuality* air_quality_instance)
 {
-	air_quality_instance->error_message = ErrorMessages[0];
+	air_quality_instance->error_message = ErrorMessages[air_quality_instance->error_code];
 	air_quality_instance->error_flag = false;
 	air_quality_instance->AirQualityZone = Z0;
 	air_quality_instance->error_code = 0;
 }
-
+//////////////////  Doesn't work /////////////////////
+char* GetErrorCode(struct AirQuality* air_quality_instance)
+{
+	char* mess;
+	uint8_t code_n = air_quality_instance->error_code;
+	strcpy(mess, ErrorMessages[code_n]);
+	return mess;
+}

@@ -3,6 +3,8 @@
 "./Core/Src/Button.o"
 "./Core/Src/Buzzer.o"
 "./Core/Src/GasSensor.o"
+"./Core/Src/LED_Driver.o"
+"./Core/Src/LED_Handler.o"
 "./Core/Src/MQ9FlyingFish.o"
 "./Core/Src/UART.o"
 "./Core/Src/main.o"
