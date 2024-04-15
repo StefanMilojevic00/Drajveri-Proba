@@ -1,0 +1,13 @@
+/*
+ * LED.c
+ *
+ *  Created on: Apr 15, 2024
+ *      Author: Marko.Manic
+ */
+
+#include "LED.h"
+
+void LED(struct LED_Driver* led_instance)
+{
+	CreateNewButton(&led_instance, GPIOI, Led_out_Pin);
+}

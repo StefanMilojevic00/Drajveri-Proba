@@ -44,7 +44,7 @@ static struct Counters cnt_1 = {
 	.active_state = GPIO_PIN_SET,
 };
 */
-static struct Button{
+struct Button{
 
 	volatile bool btn_press_flag;
 	volatile bool btn_cnt_reset;
@@ -59,6 +59,8 @@ static struct Button{
 
 	ButtonDebounceFSM button_state;
 };
+
+
 
 void CreateNewButton(struct Button* button_instance, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
 //void ButtonInit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);

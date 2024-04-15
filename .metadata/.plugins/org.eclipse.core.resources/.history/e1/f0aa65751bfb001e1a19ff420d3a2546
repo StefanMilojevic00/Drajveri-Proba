@@ -1,0 +1,18 @@
+/*
+ * LED.c
+ *
+ *  Created on: Apr 15, 2024
+ *      Author: Marko.Manic
+ */
+
+#include "LED.h"
+/*
+void LED(struct SingleLed* led_instance)
+{
+	CreateNewButton(&led_instance, GPIOI, Led_out_Pin);
+}
+*/
+void LED()
+{
+	CreateNewSingleLED(&new_led, Led_out_GPIO_Port, Led_out_Pin);
+}

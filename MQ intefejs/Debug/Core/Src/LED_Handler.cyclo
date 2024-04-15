@@ -1,0 +1,2 @@
+../Core/Src/LED_Handler.c:10:6:LED_init	1
+../Core/Src/LED_Handler.c:14:6:LED_Drive	1

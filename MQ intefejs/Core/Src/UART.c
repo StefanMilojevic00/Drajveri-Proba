@@ -14,6 +14,8 @@ extern UART_HandleTypeDef huart1;
 void UART_TransmitString(char* str)
 {
 	HAL_UART_Transmit(&huart1, (uint8_t*)str, strlen(str), HAL_MAX_DELAY);
+	char ret[] = "\r\n";
+	HAL_UART_Transmit(&huart1, (uint8_t*)ret, strlen(ret), HAL_MAX_DELAY);
 }
 
 void UART_TransmitFloat(float data)
@@ -22,5 +24,4 @@ void UART_TransmitFloat(float data)
 	sprintf(msg, "%.2f\r\n", data);
 	HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 }
-
 
