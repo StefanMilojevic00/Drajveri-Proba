@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Led_out_Pin"/>
+		<item key="selection" value="led_cnt."/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="timer-&gt;"/>
+			<item value="-&gt;"/>
+			<item value="&#x09;if(timer-&gt;led_overflow_flag == true)"/>
+			<item value="update_param_flage"/>
+			<item value="btn_cnt"/>
+			<item value="IndicatorBlue1"/>
+			<item value="IndicatorBlue"/>
+			<item value="IndicatorGreen_GPIO_Port"/>
 			<item value="led_out_pin"/>
 			<item value="led"/>
 			<item value="buzz"/>
@@ -16,11 +24,16 @@
 			<item value="MQ"/>
 		</list>
 		<list key="replacehistory">
+			<item value="led_cnt."/>
+			<item value="."/>
+			<item value="led_cnt"/>
+			<item value="update_param_flag"/>
+			<item value="prog_cnt"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1139"/>
-		<item key="DIALOG_Y_ORIGIN" value="263"/>
+		<item key="DIALOG_X_ORIGIN" value="873"/>
+		<item key="DIALOG_Y_ORIGIN" value="287"/>
 		<item key="DIALOG_WIDTH" value="414"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

@@ -17,24 +17,24 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+
 
 typedef struct{
-    volatile uint16_t cnt_led_correct_on;
-    volatile uint16_t cnt_led_incorrect_on;
-    volatile uint16_t cnt_led_off;
-
-    uint16_t time_led_correct_on;    // 1 sec
-    uint16_t time_led_incorrect_on;  // 0.5 sec
-    uint16_t time_led_off;           // 3 sec
-
-    volatile bool led_overflow_flag;
-
-    volatile bool led_state;   //  true -> Led ON
-    volatile bool correct_led; //  true -> Systme work well
-
-    // LED status state machine
-    LED_StatusFSM ledStatus;
+//    volatile uint16_t cnt_led_correct_on;
+//    volatile uint16_t cnt_led_incorrect_on;
+//    volatile uint16_t cnt_led_off;
+//
+//    uint16_t time_led_correct_on;    // 1 sec
+//    uint16_t time_led_incorrect_on;  // 0.5 sec
+//    uint16_t time_led_off;           // 3 sec
+//
+//    volatile bool led_overflow_flag;
+//
+//    volatile bool led_state;   //  true -> Led ON
+//    volatile bool correct_led; //  true -> Systme work well
+//
+//    // LED status state machine
+//    LED_StatusFSM ledStatus;
 
     // GPIO configuration
     GPIO_TypeDef* GPIOx;
@@ -43,8 +43,8 @@ typedef struct{
 
 //static void DriveSegmentLED(uint8_t LED_status); // izdvojiti
 
-static void TimerLED(SingleLed* single_led_instance);
-void UpdateSingleLED(SingleLed* single_led_instance, bool* system_state);
+//void TimerLED(SingleLed* single_led_instance);
+void UpdateSingleLED(SingleLed* single_led_instance, bool state);
 
 
 
@@ -53,7 +53,7 @@ void UpdateSingleLED(SingleLed* single_led_instance, bool* system_state);
 
 
 void CreateNewSingleLED(SingleLed* single_led_instance, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
-void DriveSignleLED(SingleLed* single_led_instance);
+void DriveSignleLED(bool state);
 
 //void CreateNewSegmentLED(struct SegmentLED* segment_led_instance);
 //void DriveSegmentLED(bool* setState);

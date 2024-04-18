@@ -13,10 +13,10 @@
 
 
 
-static SingleLed new_led;
+
 
 void LED_init();
-void LED_Drive(bool* system_state);
+void LED_Drive(bool state);
 
 //void LED_init(struct SingleLed* led_instance);
 
