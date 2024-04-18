@@ -104,29 +104,16 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM11_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_Base_Start_IT(&htim11);
-  AppInit();
-//  LED_init();
+  HAL_TIM_Base_Start_IT(&htim11); //Start timer
+  AppInit(); //Initialize all peripherals
 
-  AppStart();
-  volatile bool proba = true;
-  char msg[] = "Button pressed!";
-  char sep[] = "########################";
+  AppStart(); //Starts the app, from this point all user code bellow will be disregarded
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-//	  bool dugme_proba = ReadSignal(&proba);
-//	  if(dugme_proba)
-//		  UART_TransmitString(msg);
-//	  bool systemState = true;
-//	  LED_Drive(&systemState);
-	  //UART_TransmitString(sep);
 
   }
   /* USER CODE END 3 */

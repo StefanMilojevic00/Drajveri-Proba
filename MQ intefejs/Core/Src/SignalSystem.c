@@ -5,11 +5,11 @@
  *      Author: Stefan.Milojevic
  */
 #include <stdio.h> //just in case
-
 #include "SignalSystem.h"
-#include "Button.h"
 
-struct Button button;
+
+
+static Button_t button;
 
 void SignalSystemInit()
 {

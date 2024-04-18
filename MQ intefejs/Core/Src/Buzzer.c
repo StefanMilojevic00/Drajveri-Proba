@@ -7,6 +7,8 @@
 
 #include "Buzzer.h"
 
+
+
 void Buzzer_init(Buzzer_t* BuzzerStruct, GPIO_TypeDef* gpioPort, uint16_t gpioPin)
 {
 	BuzzerStruct->gpioPort = gpioPort;

@@ -1,2 +1,2 @@
 ../Core/Src/LED_Driver.c:12:6:CreateNewSingleLED	24	static
-../Core/Src/LED_Driver.c:34:6:UpdateSingleLED	16	static
+../Core/Src/LED_Driver.c:18:6:UpdateSingleLED	16	static

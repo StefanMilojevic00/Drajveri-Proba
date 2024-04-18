@@ -13,7 +13,8 @@
 #include "MQ9FlyingFish.h"
 
 
-void InitGasSenosor()
+
+void InitGasSenosor() //Not needed for our sensor as it is made ready to meassure on launch
 {
 	//MQ9_init(&MQSetting, MQ_GPIO_Port, MQ9_GPIO_Pin);
 }

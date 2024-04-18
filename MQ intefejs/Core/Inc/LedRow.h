@@ -10,6 +10,8 @@
 
 #include "main.h"
 
+
+
 //Structure holding pin configuration for the entire led row used in indication of air quality
 typedef struct
 {

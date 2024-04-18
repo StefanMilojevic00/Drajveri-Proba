@@ -1,2 +1,2 @@
-../Core/Src/Buzzer.c:10:6:Buzzer_init	1
-../Core/Src/Buzzer.c:16:6:BuzzerWritePin	1
+../Core/Src/Buzzer.c:12:6:Buzzer_init	1
+../Core/Src/Buzzer.c:18:6:BuzzerWritePin	1

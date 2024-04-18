@@ -1,37 +1,17 @@
-17:02:37 **** Incremental Build of configuration Debug for project MQ intefejs ****
+11:00:50 **** Incremental Build of configuration Debug for project MQ intefejs ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
-../Core/Src/TopLayer.c: In function 'AppStart':
-../Core/Src/TopLayer.c:137:46: warning: variable 'LED_correct' set but not used [-Wunused-but-set-variable]
-  137 |                                         bool LED_correct;
-      |                                              ^~~~~~~~~~~
-../Core/Src/TopLayer.c:134:46: warning: unused variable 'msg6' [-Wunused-variable]
-  134 |                                         char msg6[] = "P_WORK";
-      |                                              ^~~~
-../Core/Src/TopLayer.c:126:46: warning: unused variable 'msg5' [-Wunused-variable]
-  126 |                                         char msg5[] = "P_IDLE";
-      |                                              ^~~~
-../Core/Src/TopLayer.c: In function 'HAL_TIM_PeriodElapsedCallback':
-../Core/Src/TopLayer.c:317:38: warning: unused variable 'msg3' [-Wunused-variable]
-  317 |                                 char msg3[] = "C_END";
-      |                                      ^~~~
-../Core/Src/TopLayer.c:292:38: warning: unused variable 'msg2' [-Wunused-variable]
-  292 |                                 char msg2[] = "C_START";
-      |                                      ^~~~
-../Core/Src/TopLayer.c:270:22: warning: unused variable 'msg11' [-Wunused-variable]
-  270 |                 char msg11[] = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
-      |                      ^~~~~
-arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Stevan.Milojevic\Desktop\Projekat_drajveri\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: MQ intefejs.elf
  
 arm-none-eabi-size  MQ\ intefejs.elf 
 arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
    text	   data	    bss	    dec	    hex	filename
-  43428	    628	   2308	  46364	   b51c	MQ intefejs.elf
+  42788	    628	   2308	  45724	   b29c	MQ intefejs.elf
 Finished building: default.size.stdout
  
 Finished building: MQ intefejs.list
  
 
-17:02:38 Build Finished. 0 errors, 6 warnings. (took 1s.339ms)
+11:00:51 Build Finished. 0 errors, 0 warnings. (took 1s.438ms)
 

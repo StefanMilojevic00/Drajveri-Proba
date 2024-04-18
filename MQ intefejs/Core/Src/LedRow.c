@@ -7,6 +7,8 @@
 
 #include "LedRow.h"
 
+
+
 void LedRowInit(ledRow_t* ledRow,
 				GPIO_TypeDef *gpioPortGreen, uint16_t gpioPinGreen,
 				GPIO_TypeDef *gpioPortYellow1, uint16_t gpioPinYellow1,
@@ -33,7 +35,6 @@ void LedRowInit(ledRow_t* ledRow,
 	ledRow->gpioPortBlue3 = gpioPortBlue3;
 	ledRow->gpioPinBlue3 = gpioPinBlue3;
 }
-
 
 void LedRowWrite(ledRow_t* ledRow, float PPM_Value)
 {

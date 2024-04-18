@@ -1,0 +1,54 @@
+/*
+ * TopLayer.h
+ *
+ *  Created on: Apr 12, 2024
+ *      Author: Stefan.Milojevic
+ */
+
+#ifndef INC_TOPLAYER_H_
+#define INC_TOPLAYER_H_
+
+#include <stdbool.h>
+#include "LED_Handler.h"
+#include "GasSensor.h"
+#include "AlarmSystem.h"
+#include "UART.h"
+#include "SignalSystem.h"
+#include "AirQualityIndicator.h"
+#include "main.h"
+
+//Structure for holding single LED time counters and flags
+typedef struct
+{
+    volatile uint16_t cnt_led_correct_on;
+    volatile uint16_t cnt_led_incorrect_on;
+    volatile uint16_t cnt_led_off;
+
+    uint16_t time_led_correct_on;    // 1 sec
+    uint16_t time_led_incorrect_on;  // 0.5 sec
+    uint16_t time_led_off;           // 3 sec
+
+    volatile bool led_overflow_flag;
+
+ //   volatile bool led_state;   //  true . Led ON
+    volatile bool correct_led; //  true . Systme work well
+
+}LED_Counter;
+
+
+//FSM to handle the states in which the system works
+typedef enum {P_IDLE, P_IDLE_START, P_WORK} ProgramStateFSM;
+//FSM to count the time and set needed flags for action
+typedef enum {C_IDLE, C_START, C_END} CountingTasterFSM;
+//FSM to control single LED
+typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+
+
+//@brief Function to initialize all of the systems peripherals
+void AppInit();
+
+//@brief Function to act as a main function, calling all drivers and systems
+void AppStart();
+
+
+#endif /* INC_TOPLAYER_H_ */

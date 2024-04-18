@@ -20,7 +20,6 @@ void AirQualityIncicatorInit()
 					IndicatorBlue3_GPIO_Port, IndicatorBlue3_Pin);
 }
 
-
 void SetIndicatorLEDs(float PPM_Value)
 {
 	LedRowWrite(&loadConfiguration, PPM_Value);

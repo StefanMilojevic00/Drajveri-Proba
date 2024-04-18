@@ -9,7 +9,8 @@
 //#define BuzzerPin Buzzer_out_Pin
 
 #include "AlarmSystem.h"
-#include "Buzzer.h"
+
+
 
 static Buzzer_t loadConfiguration;
 

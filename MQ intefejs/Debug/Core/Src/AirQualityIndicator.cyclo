@@ -1,2 +1,2 @@
 ../Core/Src/AirQualityIndicator.c:12:6:AirQualityIncicatorInit	1
-../Core/Src/AirQualityIndicator.c:24:6:SetIndicatorLEDs	1
+../Core/Src/AirQualityIndicator.c:23:6:SetIndicatorLEDs	1
