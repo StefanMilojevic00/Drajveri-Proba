@@ -1,0 +1,50 @@
+/*
+ * TopLayer.h
+ *
+ *  Created on: Apr 12, 2024
+ *      Author: Stefan.Milojevic
+ */
+
+#ifndef INC_TOPLAYER_H_
+#define INC_TOPLAYER_H_
+
+#include <stdbool.h>
+#include "LED_Handler.h"
+#include "main.h"
+#include "GasSensor.h"
+#include "AlarmSystem.h"
+#include "UART.h"
+#include "SignalSystem.h"
+#include "AirQualityIndicator.h"
+
+// Struct for counting button press
+typedef struct{
+	const uint16_t time_button; 	//  Timer overflow time
+	volatile uint16_t cnt_button; 	//  Timer emulator
+	volatile uint8_t prog_cnt_press; //	Counting number of press button for choosing refresh rate
+	volatile bool prog_cnt_reset;	//  It should be set after 3 sec
+	volatile bool read_button_flag; //  Purpose of this is for moving througt refresh rate FSM
+	volatile bool finish_counting;
+	volatile uint16_t ref_rate;
+	volatile bool update_ref_rate_flag;  //  Pusrpose of this is to indicate when refresh rate FSM should choose Mode
+	// refresh rate //
+	volatile uint16_t cnt_ref_rate;
+	volatile bool update_param_flag;
+	// Buzzer counters:
+	volatile uint8_t cnt_clear_room; // Counting the safeguard time when clearing a room of gas
+	const uint8_t time_clear_room; // 2 sec - prototype
+	volatile bool room_not_safe_flag;
+}ProgramCounters;
+
+typedef enum {P_IDLE_START, P_IDLE, P_WORK} ProgramStateFSM;
+typedef enum {R_IDLE, R_S1, R_S3, R_S5, R_PRESS_4, R_PRESS_5} RefreshRateFSM;
+typedef enum {C_IDLE, C_START, C_END} CountingTasterFSM;
+//@brief Function to initialize all of the systems peripherals
+void AppInit();
+
+//@brief Function to act as a main function, calling all drivers and systems
+void AppStart();
+
+
+
+#endif /* INC_TOPLAYER_H_ */

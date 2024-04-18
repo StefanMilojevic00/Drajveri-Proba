@@ -1,4 +1,2 @@
 ../Core/Src/LED_Driver.c:12:6:CreateNewSingleLED	1
-../Core/Src/LED_Driver.c:34:6:UpdateSingleLED	1
-../Core/Src/LED_Driver.c:41:6:DriveSignleLED	2
-../Core/Src/LED_Driver.c:75:13:TimerLED	10
+../Core/Src/LED_Driver.c:34:6:UpdateSingleLED	2

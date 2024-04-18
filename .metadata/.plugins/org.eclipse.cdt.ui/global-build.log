@@ -1,32 +1,466 @@
-16:40:10 **** Incremental Build of configuration Debug for project MQ intefejs ****
+16:16:39 **** Incremental Build of configuration Debug for project MQ intefejs ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/LED_Driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/LED_Driver.d" -MT"Core/Src/LED_Driver.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/LED_Driver.o"
-../Core/Src/LED_Driver.c: In function 'UpdateSingleLED':
-../Core/Src/LED_Driver.c:38:18: warning: passing argument 1 of 'TimerLED' from incompatible pointer type [-Wincompatible-pointer-types]
-   38 |         TimerLED(&single_led_instance);
-      |                  ^~~~~~~~~~~~~~~~~~~~
-      |                  |
-      |                  SingleLed **
-In file included from ../Core/Src/LED_Driver.c:10:
-../Core/Inc/LED_Driver.h:46:33: note: expected 'SingleLed *' but argument is of type 'SingleLed **'
-   46 | static void TimerLED(SingleLed* single_led_instance);
-      |                      ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
-../Core/Src/LED_Driver.c: In function 'TimerLED':
-../Core/Src/LED_Driver.c:81:32: warning: passing argument 1 of 'DriveSignleLED' from incompatible pointer type [-Wincompatible-pointer-types]
-   81 |                 DriveSignleLED(&timer);
-      |                                ^~~~~~
-      |                                |
-      |                                SingleLed **
-../Core/Src/LED_Driver.c:41:32: note: expected 'SingleLed *' but argument is of type 'SingleLed **'
-   41 | void DriveSignleLED(SingleLed* single_led_instance)
-      |                     ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
 arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: MQ intefejs.elf
  
 arm-none-eabi-size  MQ\ intefejs.elf 
 arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
    text	   data	    bss	    dec	    hex	filename
-  40068	    480	   2232	  42780	   a71c	MQ intefejs.elf
+  41988	    528	   2328	  44844	   af2c	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+16:16:44 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-size  MQ\ intefejs.elf 
+   text	   data	    bss	    dec	    hex	filename
+  41988	    528	   2328	  44844	   af2c	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+16:21:04 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/LED_Driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/LED_Driver.d" -MT"Core/Src/LED_Driver.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/LED_Driver.o"
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  41964	    528	   2328	  44820	   af14	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+16:22:52 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/LED_Driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/LED_Driver.d" -MT"Core/Src/LED_Driver.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/LED_Driver.o"
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  41908	    528	   2328	  44764	   aedc	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+16:24:26 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/LED_Driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/LED_Driver.d" -MT"Core/Src/LED_Driver.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/LED_Driver.o"
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  41908	    528	   2328	  44764	   aedc	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+16:42:10 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/TopLayer.c:9:
+../Core/Inc/TopLayer.h:25:15: error: redeclaration of enumerator 'LED_OFF'
+   25 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |               ^~~~~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Inc/TopLayer.h:25:15: error: redeclaration of enumerator 'LED_OFF'
+   25 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |               ^~~~~~~
+In file included from ../Core/Inc/LED_Handler.h:12,
+                 from ../Core/Inc/TopLayer.h:12:
+../Core/Inc/LED_Driver.h:20:15: note: previous definition of 'LED_OFF' with type 'enum <anonymous>'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |               ^~~~~~~
+In file included from ../Core/Inc/LED_Handler.h:12,
+                 from ../Core/Inc/TopLayer.h:12:
+../Core/Inc/LED_Driver.h:20:15: note: previous definition of 'LED_OFF' with type 'enum <anonymous>'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |               ^~~~~~~
+../Core/Inc/TopLayer.h:25:24: error: redeclaration of enumerator 'LED_ON_CORECT'
+   25 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                        ^~~~~~~~~~~~~
+../Core/Inc/LED_Driver.h:20:24: note: previous definition of 'LED_ON_CORECT' with type 'enum <anonymous>'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                        ^~~~~~~~~~~~~
+../Core/Inc/TopLayer.h:25:24: error: redeclaration of enumerator 'LED_ON_CORECT'
+   25 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                        ^~~~~~~~~~~~~
+../Core/Inc/TopLayer.h:25:39: error: redeclaration of enumerator 'LED_ON_INCORECT'
+   25 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                       ^~~~~~~~~~~~~~~
+../Core/Inc/LED_Driver.h:20:39: note: previous definition of 'LED_ON_INCORECT' with type 'enum <anonymous>'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                       ^~~~~~~~~~~~~~~
+../Core/Inc/LED_Driver.h:20:24: note: previous definition of 'LED_ON_CORECT' with type 'enum <anonymous>'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                        ^~~~~~~~~~~~~
+../Core/Inc/TopLayer.h:25:56: error: conflicting types for 'LED_StatusFSM'; have 'enum <anonymous>'
+   25 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                                        ^~~~~~~~~~~~~
+../Core/Inc/TopLayer.h:25:39: error: redeclaration of enumerator 'LED_ON_INCORECT'
+   25 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                       ^~~~~~~~~~~~~~~
+../Core/Inc/LED_Driver.h:20:56: note: previous declaration of 'LED_StatusFSM' with type 'LED_StatusFSM'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                                        ^~~~~~~~~~~~~
+../Core/Inc/LED_Driver.h:20:39: note: previous definition of 'LED_ON_INCORECT' with type 'enum <anonymous>'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                       ^~~~~~~~~~~~~~~
+../Core/Src/TopLayer.c: In function 'AppStart':
+../Core/Inc/TopLayer.h:25:56: error: conflicting types for 'LED_StatusFSM'; have 'enum <anonymous>'
+   25 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                                        ^~~~~~~~~~~~~
+../Core/Inc/LED_Driver.h:20:56: note: previous declaration of 'LED_StatusFSM' with type 'LED_StatusFSM'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                                        ^~~~~~~~~~~~~
+../Core/Src/TopLayer.c:134:46: warning: unused variable 'msg6' [-Wunused-variable]
+  134 |                                         char msg6[] = "P_WORK";
+      |                                              ^~~~
+../Core/Src/TopLayer.c:126:46: warning: unused variable 'msg5' [-Wunused-variable]
+  126 |                                         char msg5[] = "P_IDLE";
+      |                                              ^~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:124:41: warning: passing argument 1 of 'ReadSignal' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  124 |           bool dugme_proba = ReadSignal(&proba);
+      |                                         ^~~~~~
+../Core/Src/TopLayer.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/TopLayer.c:180:31: error: 'LED_Counter' has no member named 'ledStatus'
+  180 |                 switch(led_cnt.ledStatus)
+      |                               ^
+In file included from ../Core/Inc/TopLayer.h:17:
+../Core/Inc/SignalSystem.h:18:23: note: expected '_Bool *' but argument is of type 'volatile _Bool *'
+   18 | bool ReadSignal(bool* readEnable);
+      |                       ^
+../Core/Src/TopLayer.c:191:56: error: 'LED_Counter' has no member named 'ledStatus'
+  191 |                                                 led_cnt.ledStatus = LED_ON_CORECT;
+      |                                                        ^
+../Core/Src/main.c:114:8: warning: unused variable 'sep' [-Wunused-variable]
+  114 |   char sep[] = "########################";
+      |        ^~~
+../Core/Src/TopLayer.c:194:56: error: 'LED_Counter' has no member named 'ledStatus'
+  194 |                                                 led_cnt.ledStatus = LED_ON_INCORECT;
+      |                                                        ^
+../Core/Src/TopLayer.c:210:48: error: 'LED_Counter' has no member named 'ledStatus'
+  210 |                                         led_cnt.ledStatus = LED_OFF;
+      |                                                ^
+../Core/Src/TopLayer.c:223:48: error: 'LED_Counter' has no member named 'ledStatus'
+  223 |                                         led_cnt.ledStatus = LED_OFF;
+      |                                                ^
+../Core/Src/TopLayer.c:297:38: warning: unused variable 'msg3' [-Wunused-variable]
+  297 |                                 char msg3[] = "C_END";
+      |                                      ^~~~
+../Core/Src/TopLayer.c:272:38: warning: unused variable 'msg2' [-Wunused-variable]
+  272 |                                 char msg2[] = "C_START";
+      |                                      ^~~~
+../Core/Src/TopLayer.c:250:22: warning: unused variable 'msg11' [-Wunused-variable]
+  250 |                 char msg11[] = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+      |                      ^~~~~
+make: *** [Core/Src/subdir.mk:73: Core/Src/TopLayer.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:73: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:42:39 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/TopLayer.c: In function 'AppInit':
+../Core/Src/TopLayer.c:106:9: warning: implicit declaration of function 'LED_init' [-Wimplicit-function-declaration]
+  106 |         LED_init();
+      |         ^~~~~~~~
+../Core/Src/TopLayer.c: In function 'AppStart':
+../Core/Src/TopLayer.c:146:41: warning: implicit declaration of function 'LED_Drive' [-Wimplicit-function-declaration]
+  146 |                                         LED_Drive(&LED_correct);
+      |                                         ^~~~~~~~~
+../Core/Src/TopLayer.c:134:46: warning: unused variable 'msg6' [-Wunused-variable]
+  134 |                                         char msg6[] = "P_WORK";
+      |                                              ^~~~
+../Core/Src/TopLayer.c:126:46: warning: unused variable 'msg5' [-Wunused-variable]
+  126 |                                         char msg5[] = "P_IDLE";
+      |                                              ^~~~
+../Core/Src/TopLayer.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/TopLayer.c:180:31: error: 'LED_Counter' has no member named 'ledStatus'
+  180 |                 switch(led_cnt.ledStatus)
+      |                               ^
+../Core/Src/TopLayer.c:191:56: error: 'LED_Counter' has no member named 'ledStatus'
+  191 |                                                 led_cnt.ledStatus = LED_ON_CORECT;
+      |                                                        ^
+../Core/Src/TopLayer.c:194:56: error: 'LED_Counter' has no member named 'ledStatus'
+  194 |                                                 led_cnt.ledStatus = LED_ON_INCORECT;
+      |                                                        ^
+../Core/Src/TopLayer.c:210:48: error: 'LED_Counter' has no member named 'ledStatus'
+  210 |                                         led_cnt.ledStatus = LED_OFF;
+      |                                                ^
+../Core/Src/TopLayer.c:223:48: error: 'LED_Counter' has no member named 'ledStatus'
+  223 |                                         led_cnt.ledStatus = LED_OFF;
+      |                                                ^
+../Core/Src/TopLayer.c:297:38: warning: unused variable 'msg3' [-Wunused-variable]
+  297 |                                 char msg3[] = "C_END";
+      |                                      ^~~~
+../Core/Src/TopLayer.c:272:38: warning: unused variable 'msg2' [-Wunused-variable]
+  272 |                                 char msg2[] = "C_START";
+      |                                      ^~~~
+../Core/Src/TopLayer.c:250:22: warning: unused variable 'msg11' [-Wunused-variable]
+  250 |                 char msg11[] = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+      |                      ^~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:109:3: warning: implicit declaration of function 'LED_init' [-Wimplicit-function-declaration]
+  109 |   LED_init();
+      |   ^~~~~~~~
+../Core/Src/main.c:124:41: warning: passing argument 1 of 'ReadSignal' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  124 |           bool dugme_proba = ReadSignal(&proba);
+      |                                         ^~~~~~
+In file included from ../Core/Inc/TopLayer.h:17,
+                 from ../Core/Src/main.c:26:
+../Core/Inc/SignalSystem.h:18:23: note: expected '_Bool *' but argument is of type 'volatile _Bool *'
+   18 | bool ReadSignal(bool* readEnable);
+      |                       ^
+make: *** [Core/Src/subdir.mk:73: Core/Src/TopLayer.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/main.c:128:11: warning: implicit declaration of function 'LED_Drive' [-Wimplicit-function-declaration]
+  128 |           LED_Drive(&systemState);
+      |           ^~~~~~~~~
+../Core/Src/main.c:114:8: warning: unused variable 'sep' [-Wunused-variable]
+  114 |   char sep[] = "########################";
+      |        ^~~
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:54:34 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/LED_Driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/LED_Driver.d" -MT"Core/Src/LED_Driver.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/LED_Driver.o"
+arm-none-eabi-gcc "../Core/Src/LED_Handler.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/LED_Handler.d" -MT"Core/Src/LED_Handler.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/LED_Handler.o"
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/TopLayer.c:9:
+../Core/Inc/TopLayer.h:26:15: error: redeclaration of enumerator 'LED_OFF'
+   26 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |               ^~~~~~~
+In file included from ../Core/Inc/LED_Handler.h:12,
+                 from ../Core/Inc/TopLayer.h:12:
+../Core/Inc/LED_Driver.h:20:15: note: previous definition of 'LED_OFF' with type 'enum <anonymous>'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |               ^~~~~~~
+../Core/Inc/TopLayer.h:26:24: error: redeclaration of enumerator 'LED_ON_CORECT'
+   26 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                        ^~~~~~~~~~~~~
+../Core/Inc/LED_Driver.h:20:24: note: previous definition of 'LED_ON_CORECT' with type 'enum <anonymous>'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                        ^~~~~~~~~~~~~
+../Core/Inc/TopLayer.h:26:39: error: redeclaration of enumerator 'LED_ON_INCORECT'
+   26 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                       ^~~~~~~~~~~~~~~
+../Core/Inc/LED_Driver.h:20:39: note: previous definition of 'LED_ON_INCORECT' with type 'enum <anonymous>'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                       ^~~~~~~~~~~~~~~
+../Core/Inc/TopLayer.h:26:56: error: conflicting types for 'LED_StatusFSM'; have 'enum <anonymous>'
+   26 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                                        ^~~~~~~~~~~~~
+../Core/Inc/LED_Driver.h:20:56: note: previous declaration of 'LED_StatusFSM' with type 'LED_StatusFSM'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                                        ^~~~~~~~~~~~~
+../Core/Src/TopLayer.c: In function 'AppStart':
+../Core/Src/TopLayer.c:148:49: warning: the address of 'LED_correct' will always evaluate as 'true' [-Waddress]
+  148 |                                                 LED_Drive(&LED_correct);
+      |                                                 ^~~~~~~~~
+../Core/Src/TopLayer.c:134:46: warning: unused variable 'msg6' [-Wunused-variable]
+  134 |                                         char msg6[] = "P_WORK";
+      |                                              ^~~~
+../Core/Src/TopLayer.c:126:46: warning: unused variable 'msg5' [-Wunused-variable]
+  126 |                                         char msg5[] = "P_IDLE";
+      |                                              ^~~~
+In file included from ../Core/Src/main.c:26:
+../Core/Inc/TopLayer.h:26:15: error: redeclaration of enumerator 'LED_OFF'
+   26 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |               ^~~~~~~
+In file included from ../Core/Inc/LED_Handler.h:12,
+                 from ../Core/Inc/TopLayer.h:12:
+../Core/Inc/LED_Driver.h:20:15: note: previous definition of 'LED_OFF' with type 'enum <anonymous>'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |               ^~~~~~~
+../Core/Inc/TopLayer.h:26:24: error: redeclaration of enumerator 'LED_ON_CORECT'
+   26 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                        ^~~~~~~~~~~~~
+../Core/Inc/LED_Driver.h:20:24: note: previous definition of 'LED_ON_CORECT' with type 'enum <anonymous>'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                        ^~~~~~~~~~~~~
+../Core/Inc/TopLayer.h:26:39: error: redeclaration of enumerator 'LED_ON_INCORECT'
+   26 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                       ^~~~~~~~~~~~~~~
+../Core/Inc/LED_Driver.h:20:39: note: previous definition of 'LED_ON_INCORECT' with type 'enum <anonymous>'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                       ^~~~~~~~~~~~~~~
+../Core/Src/TopLayer.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/TopLayer.c:185:24: error: 'ledStatus' undeclared (first use in this function); did you mean 'ledState'?
+  185 |                 switch(ledStatus)
+      |                        ^~~~~~~~~
+      |                        ledState
+../Core/Inc/TopLayer.h:26:56: error: conflicting types for 'LED_StatusFSM'; have 'enum <anonymous>'
+   26 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                                        ^~~~~~~~~~~~~
+../Core/Src/TopLayer.c:185:24: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Inc/LED_Driver.h:20:56: note: previous declaration of 'LED_StatusFSM' with type 'LED_StatusFSM'
+   20 | typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
+      |                                                        ^~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:114:8: warning: unused variable 'sep' [-Wunused-variable]
+  114 |   char sep[] = "########################";
+      |        ^~~
+../Core/Src/main.c:113:8: warning: unused variable 'msg' [-Wunused-variable]
+  113 |   char msg[] = "Button pressed!";
+      |        ^~~
+../Core/Src/TopLayer.c:303:38: warning: unused variable 'msg3' [-Wunused-variable]
+  303 |                                 char msg3[] = "C_END";
+      |                                      ^~~~
+../Core/Src/main.c:112:17: warning: unused variable 'proba' [-Wunused-variable]
+  112 |   volatile bool proba = true;
+      |                 ^~~~~
+../Core/Src/TopLayer.c:278:38: warning: unused variable 'msg2' [-Wunused-variable]
+  278 |                                 char msg2[] = "C_START";
+      |                                      ^~~~
+../Core/Src/TopLayer.c:256:22: warning: unused variable 'msg11' [-Wunused-variable]
+  256 |                 char msg11[] = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+      |                      ^~~~~
+make: *** [Core/Src/subdir.mk:73: Core/Src/TopLayer.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:73: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:55:33 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/LED_Driver.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/LED_Driver.d" -MT"Core/Src/LED_Driver.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/LED_Driver.o"
+arm-none-eabi-gcc "../Core/Src/LED_Handler.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/LED_Handler.d" -MT"Core/Src/LED_Handler.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/LED_Handler.o"
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/TopLayer.c: In function 'AppStart':
+../Core/Src/TopLayer.c:148:49: warning: the address of 'LED_correct' will always evaluate as 'true' [-Waddress]
+  148 |                                                 LED_Drive(&LED_correct);
+      |                                                 ^~~~~~~~~
+../Core/Src/TopLayer.c:134:46: warning: unused variable 'msg6' [-Wunused-variable]
+  134 |                                         char msg6[] = "P_WORK";
+      |                                              ^~~~
+../Core/Src/TopLayer.c:126:46: warning: unused variable 'msg5' [-Wunused-variable]
+  126 |                                         char msg5[] = "P_IDLE";
+      |                                              ^~~~
+../Core/Src/TopLayer.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/TopLayer.c:185:24: error: 'ledStatus' undeclared (first use in this function); did you mean 'ledState'?
+  185 |                 switch(ledStatus)
+      |                        ^~~~~~~~~
+      |                        ledState
+../Core/Src/TopLayer.c:185:24: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/TopLayer.c:303:38: warning: unused variable 'msg3' [-Wunused-variable]
+  303 |                                 char msg3[] = "C_END";
+      |                                      ^~~~
+../Core/Src/TopLayer.c:278:38: warning: unused variable 'msg2' [-Wunused-variable]
+  278 |                                 char msg2[] = "C_START";
+      |                                      ^~~~
+../Core/Src/TopLayer.c:256:22: warning: unused variable 'msg11' [-Wunused-variable]
+  256 |                 char msg11[] = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+      |                      ^~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:114:8: warning: unused variable 'sep' [-Wunused-variable]
+  114 |   char sep[] = "########################";
+      |        ^~~
+../Core/Src/main.c:113:8: warning: unused variable 'msg' [-Wunused-variable]
+  113 |   char msg[] = "Button pressed!";
+      |        ^~~
+../Core/Src/main.c:112:17: warning: unused variable 'proba' [-Wunused-variable]
+  112 |   volatile bool proba = true;
+      |                 ^~~~~
+make: *** [Core/Src/subdir.mk:73: Core/Src/TopLayer.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+16:56:28 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+../Core/Src/TopLayer.c: In function 'AppStart':
+../Core/Src/TopLayer.c:148:49: warning: the address of 'LED_correct' will always evaluate as 'true' [-Waddress]
+  148 |                                                 LED_Drive(&LED_correct);
+      |                                                 ^~~~~~~~~
+../Core/Src/TopLayer.c:134:46: warning: unused variable 'msg6' [-Wunused-variable]
+  134 |                                         char msg6[] = "P_WORK";
+      |                                              ^~~~
+../Core/Src/TopLayer.c:126:46: warning: unused variable 'msg5' [-Wunused-variable]
+  126 |                                         char msg5[] = "P_IDLE";
+      |                                              ^~~~
+../Core/Src/TopLayer.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/TopLayer.c:303:38: warning: unused variable 'msg3' [-Wunused-variable]
+  303 |                                 char msg3[] = "C_END";
+      |                                      ^~~~
+../Core/Src/TopLayer.c:278:38: warning: unused variable 'msg2' [-Wunused-variable]
+  278 |                                 char msg2[] = "C_START";
+      |                                      ^~~~
+../Core/Src/TopLayer.c:256:22: warning: unused variable 'msg11' [-Wunused-variable]
+  256 |                 char msg11[] = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+      |                      ^~~~~
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  41692	    544	   2312	  44548	   ae04	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+16:57:25 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:114:8: warning: unused variable 'sep' [-Wunused-variable]
+  114 |   char sep[] = "########################";
+      |        ^~~
+../Core/Src/main.c:113:8: warning: unused variable 'msg' [-Wunused-variable]
+  113 |   char msg[] = "Button pressed!";
+      |        ^~~
+../Core/Src/main.c:112:17: warning: unused variable 'proba' [-Wunused-variable]
+  112 |   volatile bool proba = true;
+      |                 ^~~~~
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  43380	    628	   2308	  46316	   b4ec	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+17:02:37 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+../Core/Src/TopLayer.c: In function 'AppStart':
+../Core/Src/TopLayer.c:137:46: warning: variable 'LED_correct' set but not used [-Wunused-but-set-variable]
+  137 |                                         bool LED_correct;
+      |                                              ^~~~~~~~~~~
+../Core/Src/TopLayer.c:134:46: warning: unused variable 'msg6' [-Wunused-variable]
+  134 |                                         char msg6[] = "P_WORK";
+      |                                              ^~~~
+../Core/Src/TopLayer.c:126:46: warning: unused variable 'msg5' [-Wunused-variable]
+  126 |                                         char msg5[] = "P_IDLE";
+      |                                              ^~~~
+../Core/Src/TopLayer.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/TopLayer.c:317:38: warning: unused variable 'msg3' [-Wunused-variable]
+  317 |                                 char msg3[] = "C_END";
+      |                                      ^~~~
+../Core/Src/TopLayer.c:292:38: warning: unused variable 'msg2' [-Wunused-variable]
+  292 |                                 char msg2[] = "C_START";
+      |                                      ^~~~
+../Core/Src/TopLayer.c:270:22: warning: unused variable 'msg11' [-Wunused-variable]
+  270 |                 char msg11[] = "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT";
+      |                      ^~~~~
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  43428	    628	   2308	  46364	   b51c	MQ intefejs.elf
 Finished building: default.size.stdout
  
 Finished building: MQ intefejs.list

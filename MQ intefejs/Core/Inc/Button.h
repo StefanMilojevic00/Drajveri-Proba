@@ -16,39 +16,12 @@
 
 
 typedef enum {B_IDLE, B_DEBOUNCE, B_DETECT, B_DETECT_IDLE} ButtonDebounceFSM;
-//static ButtonDebounceFSM btnDeb = B_IDLE;
 
-/*
-static struct Counters{
-	volatile bool btn_press_flag;
-	volatile bool btn_cnt_reset;
-	volatile bool btn_polling_flag;
-	volatile bool read_button_flag;
-	volatile bool btn_press_detect_flag;
-}cnt_1;
-
-static struct GPIO_info{
-	GPIO_PinState btn_last_state;
-	GPIO_PinState active_state;
-	GPIO_TypeDef* GPIOx;
-	uint16_t GPIO_Pin;
-}GPIO_info_1;
-*/
-/*
-static struct Counters cnt_1 = {
-	.btn_press_flag = false,
-	.btn_polling_flag = false,
-	.read_button_flag = false,
-	.btn_press_detect_flag = false,
-	.btn_last_state = GPIO_PIN_RESET,
-	.active_state = GPIO_PIN_SET,
-};
-*/
 struct Button{
 
 	volatile bool btn_press_flag;
 	volatile bool btn_cnt_reset;
-	volatile bool btn_polling_flag;
+//	volatile bool btn_polling_flag;
 	volatile bool read_button_flag;
 	volatile bool btn_press_detect_flag;
 
@@ -64,7 +37,7 @@ struct Button{
 
 void CreateNewButton(struct Button* button_instance, GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
 //void ButtonInit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin);
-bool ReadButton(struct Button* button_instance, bool readEnable);
+bool ReadButton(struct Button* button_instance, bool* readEnable);
 
 #endif /* INC_BUTTON_H_ */
 

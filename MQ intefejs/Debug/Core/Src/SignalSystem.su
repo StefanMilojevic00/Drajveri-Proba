@@ -1,0 +1,2 @@
+../Core/Src/SignalSystem.c:14:6:SignalSystemInit	8	static
+../Core/Src/SignalSystem.c:19:6:ReadSignal	24	static
