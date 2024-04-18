@@ -22,6 +22,10 @@ static char IdleMSG[] = "System waits for configuration";
 static char PPM_MSG[] = "PPM = ";
 static char AlertMSG[] = "Dangerous leves of PPM in the room";
 static char RoomClearedMSG[] = "Room cleared, it is now safe to return";
+static char S1WorkStateMSG[] = "S1 work regime selected";
+static char S3WorkStateMSG[] = "S3 work regime selected";
+static char S5WorkStateMSG[] = "S5 work regime selected";
+
 
 LED_Counter led_cnt = {
 	    .cnt_led_correct_on = 0,
@@ -74,27 +78,27 @@ void AppStart()
 				case P_IDLE_START:
 
 					UART_TransmitString(IdleMSG);
+					SetIndicatorLEDs(0); //resets the indicator
 					progState = P_IDLE;
 					break;
 
 				case P_IDLE:
 
-					//Does nothing
+					//Does nothing, holds the program here until it is configured
 
 					break;
 
 				case P_WORK:
 
 					float PPM = ReadGasSensor();
-					bool LED_correct;
 
 					if(PPM < 400)
 					{
-						LED_correct = false;
+						led_cnt.correct_led = false;
 					}
 					else
 					{
-						LED_correct = true;
+						led_cnt.correct_led  = true;
 					}
 
 					if(led_cnt.led_overflow_flag == true)
@@ -103,19 +107,19 @@ void AppStart()
 						{
 							case LED_OFF:
 
-								LED_Drive(LED_correct);
+								LED_Drive(false);
 
 								break;
 
 							case LED_ON_CORECT:
 
-								LED_Drive(LED_correct);
+								LED_Drive(true);
 
 								break;
 
 							case LED_ON_INCORECT:
 
-								LED_Drive(LED_correct);
+								LED_Drive(true);
 
 								break;
 						}
@@ -150,7 +154,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	{
 		SysTickFlag = true;
 
-		//Controling room clearing mechanism
+		//Controling room clearing mechanism////////////////////////////////
 		if((prog_cnt.cnt_clear_room >= prog_cnt.time_clear_room) && (prog_cnt.room_not_safe_flag))
 		{
 			AlarmOFF();
@@ -172,7 +176,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 					if(led_cnt.correct_led)
 					{
 						ledState =  LED_ON_CORECT;
-					}else
+					}
+					else
 					{
 						ledState = LED_ON_INCORECT;
 					}
@@ -230,16 +235,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 					countState = C_START;
 				}
+
 				break;
 
 			case C_START:
 
 				prog_cnt.cnt_button++;
-				UART_TransmitFloat((float)prog_cnt.cnt_button);
 				if((prog_cnt.cnt_button) >= (prog_cnt.time_button))
 				{
 					countState = C_END;
-
 				}
 				else
 				{
@@ -255,6 +259,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				break;
 
 			case C_END:
+
 				prog_cnt.cnt_button = 0;
 
 				switch(prog_cnt.prog_cnt_press)
@@ -266,19 +271,25 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 					case 1:
 
 						progState = P_WORK;
+						UART_TransmitString(S1WorkStateMSG);
 						prog_cnt.ref_rate = 100;
+
 						break;
 
 					case 2:
 
 						progState = P_WORK;
+						UART_TransmitString(S3WorkStateMSG);
 						prog_cnt.ref_rate = 300;
+
 						break;
 
 					case 3:
 
 						progState = P_WORK;
+						UART_TransmitString(S5WorkStateMSG);
 						prog_cnt.ref_rate = 500;
+
 						break;
 
 					case 4:
@@ -290,12 +301,14 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 						progState = P_IDLE_START;
 						prog_cnt.ref_rate = 0;
+
 						break;
 
 				}
 
 				prog_cnt.prog_cnt_press = 0;
 				prog_cnt.finish_counting = true;
+
 				countState = C_IDLE;
 				break;
 

@@ -23,7 +23,7 @@ void CreateNewButton(Button_t* button_instance, GPIO_TypeDef* GPIOx, uint16_t GP
 
 bool ReadButton(Button_t* button_instance, bool* readEnable)
 {
-    if (readEnable)
+    if (*readEnable)
     {
         GPIO_PinState read_pin_status = HAL_GPIO_ReadPin(button_instance->GPIOx, button_instance->GPIO_Pin);
 
@@ -59,14 +59,13 @@ bool ReadButton(Button_t* button_instance, bool* readEnable)
 
             case B_DETECT_IDLE:
 
-                button_instance->btn_last_state = read_pin_status;
-                if (read_pin_status != button_instance->active_state)
+            	button_instance->btn_press_detect_flag = false;
+            	button_instance->btn_last_state = read_pin_status;
+            	if (read_pin_status != button_instance->active_state)
                 {
-                    button_instance->btn_press_detect_flag = false;
                     button_instance->button_state = B_IDLE;
                 }
                 break;
-
         }
     }
     bool retval = button_instance->btn_press_detect_flag;
