@@ -8,6 +8,8 @@
 #ifndef INC_GASSENSOR_H_
 #define INC_GASSENSOR_H_
 
+
+
 //@brief Initializes the sensor
 void InitGasSenosor();
 

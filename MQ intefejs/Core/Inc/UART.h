@@ -11,6 +11,8 @@
 
 #include "main.h"
 
+
+
 //@brief Transmits a string trough UART
 //@param str String to be transmitted
 void UART_TransmitString(char* str);
@@ -18,8 +20,6 @@ void UART_TransmitString(char* str);
 //@brief Transmits float trough uart
 //@param data Data to be transmitted
 void UART_TransmitFloat(float data);
-
-
 
 
 #endif /* INC_UART_H_ */

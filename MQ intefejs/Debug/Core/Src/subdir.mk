@@ -5,7 +5,6 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Core/Src/AirQuality.c \
 ../Core/Src/AirQualityIndicator.c \
 ../Core/Src/AlarmSystem.c \
 ../Core/Src/Button.c \
@@ -26,7 +25,6 @@ C_SRCS += \
 ../Core/Src/system_stm32f7xx.c 
 
 C_DEPS += \
-./Core/Src/AirQuality.d \
 ./Core/Src/AirQualityIndicator.d \
 ./Core/Src/AlarmSystem.d \
 ./Core/Src/Button.d \
@@ -47,7 +45,6 @@ C_DEPS += \
 ./Core/Src/system_stm32f7xx.d 
 
 OBJS += \
-./Core/Src/AirQuality.o \
 ./Core/Src/AirQualityIndicator.o \
 ./Core/Src/AlarmSystem.o \
 ./Core/Src/Button.o \
@@ -75,7 +72,7 @@ Core/Src/%.o Core/Src/%.su Core/Src/%.cyclo: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/AirQuality.cyclo ./Core/Src/AirQuality.d ./Core/Src/AirQuality.o ./Core/Src/AirQuality.su ./Core/Src/AirQualityIndicator.cyclo ./Core/Src/AirQualityIndicator.d ./Core/Src/AirQualityIndicator.o ./Core/Src/AirQualityIndicator.su ./Core/Src/AlarmSystem.cyclo ./Core/Src/AlarmSystem.d ./Core/Src/AlarmSystem.o ./Core/Src/AlarmSystem.su ./Core/Src/Button.cyclo ./Core/Src/Button.d ./Core/Src/Button.o ./Core/Src/Button.su ./Core/Src/Buzzer.cyclo ./Core/Src/Buzzer.d ./Core/Src/Buzzer.o ./Core/Src/Buzzer.su ./Core/Src/GasSensor.cyclo ./Core/Src/GasSensor.d ./Core/Src/GasSensor.o ./Core/Src/GasSensor.su ./Core/Src/LED_Driver.cyclo ./Core/Src/LED_Driver.d ./Core/Src/LED_Driver.o ./Core/Src/LED_Driver.su ./Core/Src/LED_Handler.cyclo ./Core/Src/LED_Handler.d ./Core/Src/LED_Handler.o ./Core/Src/LED_Handler.su ./Core/Src/LedRow.cyclo ./Core/Src/LedRow.d ./Core/Src/LedRow.o ./Core/Src/LedRow.su ./Core/Src/MQ9FlyingFish.cyclo ./Core/Src/MQ9FlyingFish.d ./Core/Src/MQ9FlyingFish.o ./Core/Src/MQ9FlyingFish.su ./Core/Src/SignalSystem.cyclo ./Core/Src/SignalSystem.d ./Core/Src/SignalSystem.o ./Core/Src/SignalSystem.su ./Core/Src/TopLayer.cyclo ./Core/Src/TopLayer.d ./Core/Src/TopLayer.o ./Core/Src/TopLayer.su ./Core/Src/UART.cyclo ./Core/Src/UART.d ./Core/Src/UART.o ./Core/Src/UART.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32f7xx_hal_msp.cyclo ./Core/Src/stm32f7xx_hal_msp.d ./Core/Src/stm32f7xx_hal_msp.o ./Core/Src/stm32f7xx_hal_msp.su ./Core/Src/stm32f7xx_it.cyclo ./Core/Src/stm32f7xx_it.d ./Core/Src/stm32f7xx_it.o ./Core/Src/stm32f7xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f7xx.cyclo ./Core/Src/system_stm32f7xx.d ./Core/Src/system_stm32f7xx.o ./Core/Src/system_stm32f7xx.su
+	-$(RM) ./Core/Src/AirQualityIndicator.cyclo ./Core/Src/AirQualityIndicator.d ./Core/Src/AirQualityIndicator.o ./Core/Src/AirQualityIndicator.su ./Core/Src/AlarmSystem.cyclo ./Core/Src/AlarmSystem.d ./Core/Src/AlarmSystem.o ./Core/Src/AlarmSystem.su ./Core/Src/Button.cyclo ./Core/Src/Button.d ./Core/Src/Button.o ./Core/Src/Button.su ./Core/Src/Buzzer.cyclo ./Core/Src/Buzzer.d ./Core/Src/Buzzer.o ./Core/Src/Buzzer.su ./Core/Src/GasSensor.cyclo ./Core/Src/GasSensor.d ./Core/Src/GasSensor.o ./Core/Src/GasSensor.su ./Core/Src/LED_Driver.cyclo ./Core/Src/LED_Driver.d ./Core/Src/LED_Driver.o ./Core/Src/LED_Driver.su ./Core/Src/LED_Handler.cyclo ./Core/Src/LED_Handler.d ./Core/Src/LED_Handler.o ./Core/Src/LED_Handler.su ./Core/Src/LedRow.cyclo ./Core/Src/LedRow.d ./Core/Src/LedRow.o ./Core/Src/LedRow.su ./Core/Src/MQ9FlyingFish.cyclo ./Core/Src/MQ9FlyingFish.d ./Core/Src/MQ9FlyingFish.o ./Core/Src/MQ9FlyingFish.su ./Core/Src/SignalSystem.cyclo ./Core/Src/SignalSystem.d ./Core/Src/SignalSystem.o ./Core/Src/SignalSystem.su ./Core/Src/TopLayer.cyclo ./Core/Src/TopLayer.d ./Core/Src/TopLayer.o ./Core/Src/TopLayer.su ./Core/Src/UART.cyclo ./Core/Src/UART.d ./Core/Src/UART.o ./Core/Src/UART.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32f7xx_hal_msp.cyclo ./Core/Src/stm32f7xx_hal_msp.d ./Core/Src/stm32f7xx_hal_msp.o ./Core/Src/stm32f7xx_hal_msp.su ./Core/Src/stm32f7xx_it.cyclo ./Core/Src/stm32f7xx_it.d ./Core/Src/stm32f7xx_it.o ./Core/Src/stm32f7xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f7xx.cyclo ./Core/Src/system_stm32f7xx.d ./Core/Src/system_stm32f7xx.o ./Core/Src/system_stm32f7xx.su
 
 .PHONY: clean-Core-2f-Src
 

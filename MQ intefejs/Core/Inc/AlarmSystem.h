@@ -8,6 +8,10 @@
 #ifndef INC_ALARMSYSTEM_H_
 #define INC_ALARMSYSTEM_H_
 
+#include "Buzzer.h"
+
+
+
 //@brief Initializes the system
 void AlarmInit();
 
@@ -16,5 +20,6 @@ void AlarmON();
 
 //@briefg Turns the alarm off
 void AlarmOFF();
+
 
 #endif /* INC_ALARMSYSTEM_H_ */

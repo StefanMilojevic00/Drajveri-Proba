@@ -9,12 +9,16 @@
 #define INC_SIGNALSYSTEM_H_
 
 #include <stdbool.h>
+#include "Button.h"
 
-//@brief Function to initialize the signaling system (currently buttnon)
+
+
+//@brief Function to initialize the signaling system (currently button)
 void SignalSystemInit();
 
 //@brief Function to read the status of the signaling pin
 //@retval Value if the signal has been detected or not
 bool ReadSignal(bool* readEnable);
+
 
 #endif /* INC_SIGNALSYSTEM_H_ */

@@ -1,4 +1,3 @@
-"./Core/Src/AirQuality.o"
 "./Core/Src/AirQualityIndicator.o"
 "./Core/Src/AlarmSystem.o"
 "./Core/Src/Button.o"

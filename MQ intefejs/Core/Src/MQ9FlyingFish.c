@@ -8,6 +8,8 @@
 
 #include "MQ9FlyingFish.h"
 
+
+
 extern ADC_HandleTypeDef hadc3;
 
 static float DigitalLevels = 4096.0; // ADC has 12 bit resolution so 2^12 = 4096
@@ -19,7 +21,7 @@ void MQ9_init(MQ9_t* MQ9, GPIO_TypeDef* gpioPort, uint16_t dataPin)
 	MQ9->dataPin = dataPin;
 }
 
-uint16_t MQ9_GetRawValue(/*MQ9_t* MQ9*/)
+uint16_t MQ9_GetRawValue()
 {
 	HAL_ADC_Start(&hadc3);
 	HAL_ADC_PollForConversion(&hadc3, HAL_MAX_DELAY);

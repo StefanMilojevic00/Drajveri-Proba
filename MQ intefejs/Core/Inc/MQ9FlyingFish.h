@@ -10,6 +10,8 @@
 
 #include "main.h"
 
+
+
 //Structure for holding senosor configuration
 typedef struct
 {
@@ -25,13 +27,12 @@ void MQ9_init(MQ9_t* MQ9, GPIO_TypeDef* gpioPort, uint16_t dataPin);
 
 //@brief Funtion to read raw sensor value
 //@param MQ9 Structure holding the configuration
-uint16_t MQ9_GetRawValue(/*MQ9_t* MQ9*/);
+uint16_t MQ9_GetRawValue();
 
 //@brief Function to convert raw value to real value
 //@param rawValue Value to be converted
 //@retval Real sensor value
 float MQ9_ConverRaw2Real(uint16_t rawValue);
-
 
 
 #endif /* INC_MQ9FLYINGFISH_H_ */

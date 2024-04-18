@@ -10,13 +10,14 @@
 
 #include "LedRow.h"
 
+
+
 //@brief Function to initialize the indicator system
 void AirQualityIncicatorInit();
 
 //@brief Function to set the indicator of air quality
-//@param PPM_Value Float value of the air quality based on which the indicator works
+//@param PPM_Value Value of the air quality based on which the indicator works
 void SetIndicatorLEDs(float PPM_Value);
-
 
 
 #endif /* INC_AIRQUALITYINDICATOR_H_ */
