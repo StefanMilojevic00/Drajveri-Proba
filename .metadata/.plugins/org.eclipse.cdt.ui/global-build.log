@@ -1,83 +1,267 @@
-10:41:03 **** Incremental Build of configuration Debug for project MQ intefejs ****
+11:37:33 **** Incremental Build of configuration Debug for project MQ intefejs ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
-arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Stevan.Milojevic\Desktop\Projekat_drajveri\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: MQ intefejs.elf
- 
-arm-none-eabi-size  MQ\ intefejs.elf 
-arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
-   text	   data	    bss	    dec	    hex	filename
-  42892	    628	   2308	  45828	   b304	MQ intefejs.elf
-Finished building: default.size.stdout
- 
-Finished building: MQ intefejs.list
- 
-10:44:05 **** Incremental Build of configuration Debug for project MQ intefejs ****
-make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Stevan.Milojevic\Desktop\Projekat_drajveri\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+../Core/Src/TopLayer.c:22:13: warning: 'IdleMSG' defined but not used [-Wunused-variable]
+   22 | static char IdleMSG[] = "IDLE";
+      |             ^~~~~~~
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: MQ intefejs.elf
  
 arm-none-eabi-size  MQ\ intefejs.elf 
 arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
    text	   data	    bss	    dec	    hex	filename
-  42796	    628	   2308	  45732	   b2a4	MQ intefejs.elf
+  42804	    636	   2308	  45748	   b2b4	MQ intefejs.elf
 Finished building: default.size.stdout
  
 Finished building: MQ intefejs.list
  
-10:49:41 **** Incremental Build of configuration Debug for project MQ intefejs ****
+11:37:38 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-size  MQ\ intefejs.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42804	    636	   2308	  45748	   b2b4	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+11:40:39 **** Incremental Build of configuration Debug for project MQ intefejs ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
-arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Stevan.Milojevic\Desktop\Projekat_drajveri\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+../Core/Src/TopLayer.c:22:13: warning: 'IdleMSG' defined but not used [-Wunused-variable]
+   22 | static char IdleMSG[] = "IDLE";
+      |             ^~~~~~~
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: MQ intefejs.elf
  
 arm-none-eabi-size  MQ\ intefejs.elf 
 arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
    text	   data	    bss	    dec	    hex	filename
-  42756	    628	   2308	  45692	   b27c	MQ intefejs.elf
+  42844	    636	   2308	  45788	   b2dc	MQ intefejs.elf
 Finished building: default.size.stdout
  
 Finished building: MQ intefejs.list
  
-10:56:02 **** Incremental Build of configuration Debug for project MQ intefejs ****
+11:42:05 **** Incremental Build of configuration Debug for project MQ intefejs ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
-arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Stevan.Milojevic\Desktop\Projekat_drajveri\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+../Core/Src/TopLayer.c:22:13: warning: 'IdleMSG' defined but not used [-Wunused-variable]
+   22 | static char IdleMSG[] = "IDLE";
+      |             ^~~~~~~
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: MQ intefejs.elf
  
 arm-none-eabi-size  MQ\ intefejs.elf 
 arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
    text	   data	    bss	    dec	    hex	filename
-  42804	    628	   2308	  45740	   b2ac	MQ intefejs.elf
+  42876	    636	   2308	  45820	   b2fc	MQ intefejs.elf
 Finished building: default.size.stdout
  
 Finished building: MQ intefejs.list
  
-10:58:45 **** Incremental Build of configuration Debug for project MQ intefejs ****
+11:45:12 **** Incremental Build of configuration Debug for project MQ intefejs ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
-arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Stevan.Milojevic\Desktop\Projekat_drajveri\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+../Core/Src/TopLayer.c:22:13: warning: 'IdleMSG' defined but not used [-Wunused-variable]
+   22 | static char IdleMSG[] = "IDLE";
+      |             ^~~~~~~
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: MQ intefejs.elf
  
 arm-none-eabi-size  MQ\ intefejs.elf 
 arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
    text	   data	    bss	    dec	    hex	filename
-  42812	    628	   2308	  45748	   b2b4	MQ intefejs.elf
+  42868	    636	   2308	  45812	   b2f4	MQ intefejs.elf
 Finished building: default.size.stdout
  
 Finished building: MQ intefejs.list
  
-11:00:50 **** Incremental Build of configuration Debug for project MQ intefejs ****
+11:45:34 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-size  MQ\ intefejs.elf 
+   text	   data	    bss	    dec	    hex	filename
+  42868	    636	   2308	  45812	   b2f4	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+11:47:27 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Button.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Button.d" -MT"Core/Src/Button.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Button.o"
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  42868	    636	   2308	  45812	   b2f4	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+11:48:45 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Button.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Button.d" -MT"Core/Src/Button.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Button.o"
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  42868	    636	   2308	  45812	   b2f4	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+11:52:57 **** Incremental Build of configuration Debug for project MQ intefejs ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
-arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Stevan.Milojevic\Desktop\Projekat_drajveri\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+../Core/Src/TopLayer.c: In function 'AppStart':
+../Core/Src/TopLayer.c:129:46: warning: unused variable 'LED_correct' [-Wunused-variable]
+  129 |                                         bool LED_correct;
+      |                                              ^~~~~~~~~~~
+../Core/Src/TopLayer.c: At top level:
+../Core/Src/TopLayer.c:22:13: warning: 'IdleMSG' defined but not used [-Wunused-variable]
+   22 | static char IdleMSG[] = "IDLE";
+      |             ^~~~~~~
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  42860	    636	   2308	  45804	   b2ec	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+11:53:24 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+../Core/Src/TopLayer.c:22:13: warning: 'IdleMSG' defined but not used [-Wunused-variable]
+   22 | static char IdleMSG[] = "IDLE";
+      |             ^~~~~~~
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  42860	    636	   2308	  45804	   b2ec	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+11:54:50 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/TopLayer.c:22:13: warning: 'IdleMSG' defined but not used [-Wunused-variable]
+   22 | static char IdleMSG[] = "IDLE";
+      |             ^~~~~~~
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  42860	    636	   2308	  45804	   b2ec	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+11:58:26 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+../Core/Src/TopLayer.c: In function 'AppStart':
+../Core/Src/TopLayer.c:77:61: error: 'IdletMSG' undeclared (first use in this function); did you mean 'IdleMSG'?
+   77 |                                         UART_TransmitString(IdletMSG);
+      |                                                             ^~~~~~~~
+      |                                                             IdleMSG
+../Core/Src/TopLayer.c:77:61: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/TopLayer.c: At top level:
+../Core/Src/TopLayer.c:21:13: warning: 'IdleMSG' defined but not used [-Wunused-variable]
+   21 | static char IdleMSG[] = "System waits for configuration";
+      |             ^~~~~~~
+make: *** [Core/Src/subdir.mk:70: Core/Src/TopLayer.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+11:58:37 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  42780	    628	   2308	  45716	   b294	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+12:00:33 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: MQ intefejs.elf
  
 arm-none-eabi-size  MQ\ intefejs.elf 
 arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
    text	   data	    bss	    dec	    hex	filename
   42788	    628	   2308	  45724	   b29c	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+12:04:49 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  42812	    652	   2308	  45772	   b2cc	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+12:07:44 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Button.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Button.d" -MT"Core/Src/Button.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Button.o"
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  42780	    700	   2308	  45788	   b2dc	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+12:09:18 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/Button.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Button.d" -MT"Core/Src/Button.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Button.o"
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  42780	    700	   2308	  45788	   b2dc	MQ intefejs.elf
+Finished building: default.size.stdout
+ 
+Finished building: MQ intefejs.list
+ 
+12:11:52 **** Incremental Build of configuration Debug for project MQ intefejs ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Projekat_1  Update\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
+arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
+   text	   data	    bss	    dec	    hex	filename
+  42812	    700	   2308	  45820	   b2fc	MQ intefejs.elf
 Finished building: default.size.stdout
  
 Finished building: MQ intefejs.list
