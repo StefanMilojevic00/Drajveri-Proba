@@ -1,0 +1,7 @@
+../Core/Src/UART_CommandSystem.c:21:6:TerminalHandler	6
+../Core/Src/UART_CommandSystem.c:58:6:TerminalInit	1
+../Core/Src/UART_CommandSystem.c:63:6:ClearRxBuffer	2
+../Core/Src/UART_CommandSystem.c:72:6:IsTransferComplete	1
+../Core/Src/UART_CommandSystem.c:77:10:GetRxBuffer	1
+../Core/Src/UART_CommandSystem.c:82:6:HAL_UART_RxCpltCallback	2
+../Core/Src/UART_CommandSystem.c:93:6:StringCompareFromUART	6

@@ -15,6 +15,7 @@
 #include "UART.h"
 #include "SignalSystem.h"
 #include "AirQualityIndicator.h"
+#include "UART_CommandSystem.h"
 #include "main.h"
 
 //Structure for holding single LED time counters and flags
@@ -60,13 +61,19 @@ typedef enum {P_IDLE, P_IDLE_START, P_WORK} ProgramStateFSM;
 typedef enum {C_IDLE, C_START, C_END} CountingTasterFSM;
 //FSM to control single LED
 typedef enum {LED_OFF, LED_ON_CORECT, LED_ON_INCORECT} LED_StatusFSM;
-
+//FSM to handle system work state based on the command input from UART
 typedef enum {cmd_0, cmd_1, cmd_2, cmd_3, cmd_4, cmd_5, cmd_6, cmd_7, cmd_8, cmd_9, cmd_10,cmd_11,
 			  cmd_12, cmd_13, cmd_14, cmd_15, cmd_16, cmd_17, cmd_18, cmd_19, cmd_20} UART_commandsFSM;
 
-bool StringCompareFromUART(char* c1, char** cc2, const uint8_t c2, uint8_t* c3);
 
-void SendACK();
+//@brief Function to execute commands from UART
+void ExecuteUARTCommand(uint8_t cmd_index);
+
+//@brief Function to list all of the possible commands to the user
+//@param command_list Matrix holding all of the commands
+//@param total_num_of_elements Total number of commands
+void HelpSendUART(char** command_list, const uint8_t total_num_of_elements);
+
 //@brief Function to initialize all of the systems peripherals
 void AppInit();
 

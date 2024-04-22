@@ -1,10 +1,17 @@
-12:55:44 **** Incremental Build of configuration Debug for project MQ intefejs ****
+14:10:35 **** Incremental Build of configuration Debug for project MQ intefejs ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/UART_CommandSystem.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/UART_CommandSystem.d" -MT"Core/Src/UART_CommandSystem.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/UART_CommandSystem.o"
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Stevan.Milojevic\Desktop\ProjekatUART\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: MQ intefejs.elf
+ 
 arm-none-eabi-size  MQ\ intefejs.elf 
+arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
    text	   data	    bss	    dec	    hex	filename
-  44028	    808	   2320	  47156	   b834	MQ intefejs.elf
+  48188	    860	   2540	  51588	   c984	MQ intefejs.elf
 Finished building: default.size.stdout
  
+Finished building: MQ intefejs.list
+ 
 
-12:55:45 Build Finished. 0 errors, 0 warnings. (took 364ms)
+14:10:36 Build Finished. 0 errors, 0 warnings. (took 1s.286ms)
 

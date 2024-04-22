@@ -37,7 +37,8 @@ Core/Src/TopLayer.o: ../Core/Src/TopLayer.c ../Core/Inc/TopLayer.h \
  ../Core/Inc/LED_Driver.h ../Core/Inc/GasSensor.h \
  ../Core/Inc/AlarmSystem.h ../Core/Inc/Buzzer.h ../Core/Inc/UART.h \
  ../Core/Inc/SignalSystem.h ../Core/Inc/Button.h \
- ../Core/Inc/AirQualityIndicator.h ../Core/Inc/LedRow.h
+ ../Core/Inc/AirQualityIndicator.h ../Core/Inc/LedRow.h \
+ ../Core/Inc/UART_CommandSystem.h
 ../Core/Inc/TopLayer.h:
 ../Core/Inc/LED_Handler.h:
 ../Core/Inc/main.h:
@@ -84,3 +85,4 @@ Core/Src/TopLayer.o: ../Core/Src/TopLayer.c ../Core/Inc/TopLayer.h \
 ../Core/Inc/Button.h:
 ../Core/Inc/AirQualityIndicator.h:
 ../Core/Inc/LedRow.h:
+../Core/Inc/UART_CommandSystem.h:

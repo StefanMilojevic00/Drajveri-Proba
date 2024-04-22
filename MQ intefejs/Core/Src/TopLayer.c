@@ -13,10 +13,12 @@
 
 
 extern TIM_HandleTypeDef htim11;
+extern UART_HandleTypeDef huart1;
 
 bool SysTickFlag = false;
 volatile bool readFlag = true;
 volatile float PPM;
+char* TerminalCommand;
 
 //Messages for sending
 static char IdleMSG[] = "System waits for configuration";
@@ -28,6 +30,7 @@ static char S3WorkStateMSG[] = "S3 work regime selected";
 static char S5WorkStateMSG[] = "S5 work regime selected";
 static char FAN_ON[] = "FAN started";
 static char FAN_OFF[] = "FAN stoped";
+static char ErrorMSG[] = "Unknown command, type HELP to see all commands";
 
 
 LED_Counter led_cnt = {
@@ -89,6 +92,8 @@ const char* cmdStrings[] = {
 		"SEGMENT_5",	 // cmd_17
 		"SEGMENT_6", 	 // cmd_18
 
+		"HELP", 	 	 // cmd_19
+
 };
 
 ProgramStateFSM progState = P_IDLE_START;
@@ -102,46 +107,58 @@ void AppInit()
 	SignalSystemInit();
 	AirQualityIncicatorInit();
 	LED_init();
+	TerminalInit(&huart1);
 }
 
 
 
 uint8_t cmd_code;
-char* readFromSerial;
+//char* readFromSerial;
 
-char* cmd_test = "WORK_S1";
+//char* cmd_test = "WORK_S1";
 uint8_t num_of_codes = 4;
 
 
 char* readFromSerial;
 uint8_t cmd_find = 0;
 bool result = false;
-const uint8_t len_of_array = 4;
+const uint8_t len_of_array = 20;
 bool first_time = false;
 
 void AppStart()
 {
 	while(1)
 	{
-		if(first_time == false)
+//		if(first_time == false)
+//		{
+//			result = StringCompareFromUART(cmd_test, &cmdStrings, len_of_array, &cmd_find);
+//			UART_TransmitString("Proslo\n");
+//			if(result == true)
+//			{
+//				uartCmdState = cmd_find;
+//				UART_TransmitString("ACK\n");
+//				SendACK();
+//
+//			}
+//			first_time = true;
+//		}
+//       (char* cmp_cmd, char* cmdStrings[], bool* ret_val)
+
+		if(IsTransferComplete() == true)
 		{
-			result = StringCompareFromUART(cmd_test, &cmdStrings, len_of_array, &cmd_find);
-			UART_TransmitString("Proslo\n");
-			if(result == true)
+			TerminalCommand = (char*)GetRxBuffer();
+			bool cmd_status = StringCompareFromUART(TerminalCommand, &cmdStrings, len_of_array, &cmd_find);
+			if(cmd_status == false)
 			{
-				uartCmdState = cmd_find;
-				UART_TransmitString("ACK\n");
-				SendACK();
-
+				UART_TransmitString(ErrorMSG);
+				progState = P_IDLE;
 			}
-			first_time = true;
+			else
+			{
+				ExecuteUARTCommand(cmd_find);
+			}
+
 		}
-
-
-
-			       //       (char* cmp_cmd, char* cmdStrings[], bool* ret_val)
-
-
 			switch(progState)
 			{
 				case P_IDLE_START:
@@ -149,6 +166,7 @@ void AppStart()
 					UART_TransmitString(IdleMSG);
 					SetIndicatorLEDs(0); //resets the indicator
 					progState = P_IDLE;
+					HelpSendUART(cmdStrings, len_of_array); //Sends the lists of commands
 					break;
 
 				case P_IDLE:
@@ -231,6 +249,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			prog_cnt.cnt_clear_room = 0;
 			prog_cnt.room_not_safe_flag = false;
 		}
+		else
+		{
+			prog_cnt.cnt_clear_room++;
+		}
 
 		//Controling single LED:////////////////////////////////////////
 		switch(ledState)
@@ -310,7 +332,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			case C_START:
 
 				prog_cnt.cnt_button++;
-				UART_TransmitFloat((float)prog_cnt.cnt_button);
+				//UART_TransmitFloat((float)prog_cnt.cnt_button);
 				if((prog_cnt.cnt_button) >= (prog_cnt.time_button))
 				{
 					countState = C_END;
@@ -388,53 +410,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	SysTickFlag = false;
 }
 
-
-
-
-bool StringCompareFromUART(char* cmp_cmd, char** cmdStrings, const uint8_t array_element, uint8_t* ret_val)
+void ExecuteUARTCommand(uint8_t cmd_index)
 {
-  bool find = false;
-  bool stop_flag = false;
-  uint8_t iterator = 0;
-  do
-	{
-	  if (((strcmp(cmp_cmd, cmdStrings[iterator])) == 0) && (find == false))
-		{
-		  if(iterator == 0)
-		  {
-			  find = true;
-			  stop_flag = true;
-			  *ret_val = iterator;
-
-			 // return find;
-		  }
-		  *ret_val = iterator;
-
-		//  printf("Uslo\n");
-		  UART_TransmitString("Uslo\n");
-		//  printf(cmp_cmd);
-		  UART_TransmitFloat((float)iterator);
-	//	  printf("\n");
-		  UART_TransmitString("\n");
-		  find = true;
-		  stop_flag = true;
-		}
-        else
-        {
-            iterator++;
-      //      printf("Nije: %d\n", iterator);
-
-
-        }
-
-	}while ((stop_flag == false) || (iterator < array_element));
-
-    return find;
-}
-
-
-void SendACK()
-{
+	uartCmdState = cmd_index;
 	switch(uartCmdState)
 	{
 		case cmd_0:
@@ -561,7 +539,7 @@ void SendACK()
 			break;
 
 		case cmd_19:
-			// reserved
+			HelpSendUART(cmdStrings, len_of_array);
 
 			break;
 
@@ -573,6 +551,18 @@ void SendACK()
 	}
 }
 
+void HelpSendUART(char** command_list, const uint8_t total_num_of_elements)
+{
+	uint8_t iterator = 0;
+	UART_TransmitString("\n=================  UART Commands =================\n");
+	while(iterator < total_num_of_elements)
+	{
+		UART_TransmitString(command_list[iterator]);
+		UART_TransmitString("\n");
+		iterator++;
+	}
+	UART_TransmitString("\n==================================================\n");
+}
 
 /*
 int main ()
