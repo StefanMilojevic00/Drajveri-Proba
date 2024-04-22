@@ -2013,3 +2013,22 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-22 11:38:43.151
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-04-22 12:59:53.488 -----------------------------------------------
+eclipse.buildId=Version 1.15.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  C:\Users\Stevan.Milojevic\Desktop\ProjekatUART\Drajveri-Proba\MQ intefejs\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Stevan.Milojevic\Desktop\ProjekatUART\Drajveri-Proba\MQ intefejs\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-04-22 13:00:25.945
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-04-22 13:00:25.954
+!MESSAGE Log4j2 initialized with config file C:\Users\Stevan.Milojevic\Desktop\ProjekatUART\Drajveri-Proba\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-22 13:00:35.046
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-04-22 13:00:47.027
+!MESSAGE Indexed 'MQ intefejs' (40 sources, 181 headers) in 11.6 sec: 17,142 declarations; 91,046 references; 2 unresolved inclusions; 42 syntax errors; 661 unresolved names (0.61%)

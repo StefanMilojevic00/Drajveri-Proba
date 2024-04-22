@@ -37,7 +37,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/LED_Driver.h ../Core/Inc/GasSensor.h \
  ../Core/Inc/AlarmSystem.h ../Core/Inc/Buzzer.h ../Core/Inc/UART.h \
  ../Core/Inc/SignalSystem.h ../Core/Inc/Button.h \
- ../Core/Inc/AirQualityIndicator.h ../Core/Inc/LedRow.h
+ ../Core/Inc/AirQualityIndicator.h ../Core/Inc/LedRow.h \
+ ../Core/Inc/UART_CommandSystem.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 ../Core/Inc/stm32f7xx_hal_conf.h:
@@ -85,3 +86,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/Button.h:
 ../Core/Inc/AirQualityIndicator.h:
 ../Core/Inc/LedRow.h:
+../Core/Inc/UART_CommandSystem.h:
