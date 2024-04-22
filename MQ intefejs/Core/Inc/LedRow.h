@@ -43,6 +43,8 @@ void LedRowInit(ledRow_t* ledRow,
 				GPIO_TypeDef *gpioPortBlue2, uint16_t gpioPinBlue2,
 				GPIO_TypeDef *gpioPortBlue3, uint16_t gpioPinBlue3);
 
+void LedRowWriteNum(ledRow_t* ledRow, const uint8_t num);
+
 //@brief Function to turn on the required number of diodes in a row
 //@param ledRow Structure holding the pinout configuration
 //@param PPM_Value Value that dictates how many leds will be ON
