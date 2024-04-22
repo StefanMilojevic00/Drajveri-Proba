@@ -92,3 +92,69 @@ void LedRowWrite(ledRow_t* ledRow, float PPM_Value)
 		HAL_GPIO_WritePin(ledRow->gpioPortBlue3, ledRow->gpioPinBlue3, GPIO_PIN_RESET);
 	}
 }
+
+void LedRowWriteNum(ledRow_t* ledRow, const uint8_t num)
+{
+	if(num <= 6)
+	{
+		if(num > 0)
+		{
+			HAL_GPIO_WritePin(ledRow->gpioPortGreen, ledRow->gpioPinGreen, GPIO_PIN_SET);
+		}
+		else
+		{
+			HAL_GPIO_WritePin(ledRow->gpioPortGreen, ledRow->gpioPinGreen, GPIO_PIN_RESET);
+		}
+
+		if(num > 1)
+		{
+			HAL_GPIO_WritePin(ledRow->gpioPortYellow1, ledRow->gpioPinYellow1, GPIO_PIN_SET);
+		}
+		else
+		{
+			HAL_GPIO_WritePin(ledRow->gpioPortYellow1, ledRow->gpioPinYellow1, GPIO_PIN_RESET);
+		}
+
+		if(num > 2)
+		{
+			HAL_GPIO_WritePin(ledRow->gpioPortYellow2, ledRow->gpioPinYellow2, GPIO_PIN_SET);
+		}
+		else
+		{
+			HAL_GPIO_WritePin(ledRow->gpioPortYellow2, ledRow->gpioPinYellow2, GPIO_PIN_RESET);
+		}
+
+		if(num > 3)
+		{
+			HAL_GPIO_WritePin(ledRow->gpioPortBlue1, ledRow->gpioPinBlue1, GPIO_PIN_SET);
+		}
+		else
+		{
+			HAL_GPIO_WritePin(ledRow->gpioPortBlue1, ledRow->gpioPinBlue1, GPIO_PIN_RESET);
+		}
+
+		if(num > 4)
+		{
+			HAL_GPIO_WritePin(ledRow->gpioPortBlue2, ledRow->gpioPinBlue2, GPIO_PIN_SET);
+		}
+		else
+		{
+			HAL_GPIO_WritePin(ledRow->gpioPortBlue2, ledRow->gpioPinBlue2, GPIO_PIN_RESET);
+		}
+
+		if(num > 5)
+		{
+			HAL_GPIO_WritePin(ledRow->gpioPortBlue3, ledRow->gpioPinBlue3, GPIO_PIN_SET);
+		}
+		else
+		{
+			HAL_GPIO_WritePin(ledRow->gpioPortBlue3, ledRow->gpioPinBlue3, GPIO_PIN_RESET);
+		}
+	}
+	else
+	{
+		// Nothing for now because App layer ensure right command
+	}
+
+
+}

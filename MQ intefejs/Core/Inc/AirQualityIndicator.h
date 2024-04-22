@@ -18,6 +18,7 @@ void AirQualityIncicatorInit();
 //@brief Function to set the indicator of air quality
 //@param PPM_Value Value of the air quality based on which the indicator works
 void SetIndicatorLEDs(float PPM_Value);
+void SetIndicatorLEDsNum(const uint8_t num);
 
 
 #endif /* INC_AIRQUALITYINDICATOR_H_ */

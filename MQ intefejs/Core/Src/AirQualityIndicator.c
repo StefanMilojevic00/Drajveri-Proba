@@ -24,4 +24,8 @@ void SetIndicatorLEDs(float PPM_Value)
 {
 	LedRowWrite(&loadConfiguration, PPM_Value);
 }
+void SetIndicatorLEDsNum(const uint8_t num)
+{
+	LedRowWriteNum(&loadConfiguration, num);
+}
 
