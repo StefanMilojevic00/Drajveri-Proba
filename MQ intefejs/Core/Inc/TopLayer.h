@@ -72,7 +72,7 @@ void ExecuteUARTCommand(uint8_t cmd_index);
 //@brief Function to list all of the possible commands to the user
 //@param command_list Matrix holding all of the commands
 //@param total_num_of_elements Total number of commands
-void HelpSendUART(char** command_list, const uint8_t total_num_of_elements);
+void HelpSendUART(const uint16_t total_num_of_elements);
 
 //@brief Function to initialize all of the systems peripherals
 void AppInit();

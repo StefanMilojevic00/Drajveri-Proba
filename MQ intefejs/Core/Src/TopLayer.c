@@ -18,7 +18,14 @@ extern UART_HandleTypeDef huart1;
 bool SysTickFlag = false;
 volatile bool readFlag = true;
 volatile float PPM;
-char* TerminalCommand;
+
+// For UART commands
+uint16_t cmd_find = 0;
+const uint16_t len_of_array = 20;
+
+
+
+
 
 //Messages for sending
 static char IdleMSG[] = "System waits for configuration";
@@ -62,37 +69,37 @@ ProgramCounters prog_cnt = {
 	    .room_not_safe_flag = false
 };
 
-const char* cmdStrings[] = {
+char* cmdStrings[] = {
 
 	//	"INVALID_COMMAND", // cmd_0
 
-		"IDLE",			 // cmd_0
-		"WORK_S1",	 	 // cmd_1
-		"WORK_S3",		 // cmd_2
-		"WORK_S5",		 // cmd_3
+		"IDLE\r",			 // cmd_0
+		"WORK_S1\r",	 	 // cmd_1
+		"WORK_S3\r",		 // cmd_2
+		"WORK_S5\r",		 // cmd_3
 
-		"READ_MQ_SENSOR",// cmd_4
+		"READ_MQ_SENSOR\r",// cmd_4
 
-		"SEND_MQ_DATA",	 // cmd_5
+		"SEND_MQ_DATA\r",	 // cmd_5
 
-		"FAN_ON",		 // cmd_6
-		"FAN_OFF",		 // cmd_7
+		"FAN_ON\r",		 // cmd_6
+		"FAN_OFF\r",		 // cmd_7
 
-		"ALARM_ON",	   	 // cmd_8
-		"ALARM_OFF",  	 // cmd_9
+		"ALARM_ON\r",	   	 // cmd_8
+		"ALARM_OFF\r",  	 // cmd_9
 
-		"LED_ON",		 // cmd_10
-		"LED_OFF",		 // cmd_11
+		"LED_ON\r",		 // cmd_10
+		"LED_OFF\r",		 // cmd_11
 
-		"SEGMENT_0",	 // cmd_12
-		"SEGMENT_1",	 // cmd_13
-		"SEGMENT_2",	 // cmd_14
-		"SEGMENT_3",	 // cmd_15
-		"SEGMENT_4",	 // cmd_16
-		"SEGMENT_5",	 // cmd_17
-		"SEGMENT_6", 	 // cmd_18
+		"SEGMENT_0\r",	 // cmd_12
+		"SEGMENT_1\r",	 // cmd_13
+		"SEGMENT_2\r",	 // cmd_14
+		"SEGMENT_3\r",	 // cmd_15
+		"SEGMENT_4\r",	 // cmd_16
+		"SEGMENT_5\r",	 // cmd_17
+		"SEGMENT_6\r", 	 // cmd_18
 
-		"HELP", 	 	 // cmd_19
+		"HELP\r", 	 	 // cmd_19
 
 };
 
@@ -100,6 +107,9 @@ ProgramStateFSM progState = P_IDLE_START;
 CountingTasterFSM countState = C_IDLE;
 LED_StatusFSM ledState = LED_OFF;
 UART_commandsFSM uartCmdState;
+
+
+
 
 void AppInit()
 {
@@ -112,53 +122,29 @@ void AppInit()
 
 
 
-uint8_t cmd_code;
-//char* readFromSerial;
-
-//char* cmd_test = "WORK_S1";
-uint8_t num_of_codes = 4;
-
-
-char* readFromSerial;
-uint8_t cmd_find = 0;
-bool result = false;
-const uint8_t len_of_array = 20;
-bool first_time = false;
 
 void AppStart()
 {
 	while(1)
 	{
-//		if(first_time == false)
-//		{
-//			result = StringCompareFromUART(cmd_test, &cmdStrings, len_of_array, &cmd_find);
-//			UART_TransmitString("Proslo\n");
-//			if(result == true)
-//			{
-//				uartCmdState = cmd_find;
-//				UART_TransmitString("ACK\n");
-//				SendACK();
-//
-//			}
-//			first_time = true;
-//		}
-//       (char* cmp_cmd, char* cmdStrings[], bool* ret_val)
-
 		if(IsTransferComplete() == true)
 		{
-			TerminalCommand = (char*)GetRxBuffer();
-			bool cmd_status = StringCompareFromUART(TerminalCommand, &cmdStrings, len_of_array, &cmd_find);
+
+			bool cmd_status = StringCompareFromUART(GetRxBuffer(), cmdStrings, len_of_array, &cmd_find);
+
 			if(cmd_status == false)
 			{
 				UART_TransmitString(ErrorMSG);
+				ClearRxBuffer();
 				progState = P_IDLE;
 			}
 			else
 			{
 				ExecuteUARTCommand(cmd_find);
+				ClearRxBuffer();
 			}
-
 		}
+
 			switch(progState)
 			{
 				case P_IDLE_START:
@@ -166,7 +152,7 @@ void AppStart()
 					UART_TransmitString(IdleMSG);
 					SetIndicatorLEDs(0); //resets the indicator
 					progState = P_IDLE;
-					HelpSendUART(cmdStrings, len_of_array); //Sends the lists of commands
+					HelpSendUART(len_of_array); //Sends the lists of commands
 					break;
 
 				case P_IDLE:
@@ -413,6 +399,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 void ExecuteUARTCommand(uint8_t cmd_index)
 {
 	uartCmdState = cmd_index;
+
 	switch(uartCmdState)
 	{
 		case cmd_0:
@@ -539,48 +526,29 @@ void ExecuteUARTCommand(uint8_t cmd_index)
 			break;
 
 		case cmd_19:
-			HelpSendUART(cmdStrings, len_of_array);
+			HelpSendUART(len_of_array);
 
 			break;
 
 		case cmd_20:
-
 			// reserved
 
 			break;
 	}
 }
 
-void HelpSendUART(char** command_list, const uint8_t total_num_of_elements)
+void HelpSendUART(uint16_t total_num_of_elements)
 {
-	uint8_t iterator = 0;
+	uint16_t iterator = 0;
 	UART_TransmitString("\n=================  UART Commands =================\n");
 	while(iterator < total_num_of_elements)
 	{
-		UART_TransmitString(command_list[iterator]);
-		UART_TransmitString("\n");
+		UART_TransmitStringWithoutNewLine("\t");
+		UART_TransmitString(cmdStrings[iterator]);
+
 		iterator++;
 	}
 	UART_TransmitString("\n==================================================\n");
 }
 
-/*
-int main ()
-{
-    int cmd_find = 0;
-    int result = StringCompareFromUART(cmd_0, &cmdStrings, num_of_codes, &cmd_find);
-
-    if(result != 0)
-    {
-            printf("Nadjeno: %d\n", cmd_find);
-    }
-    return 0;
-}
-
-	//	StringCompareFromUART(cmd_0, cmdStrings[4], &cmd_find);
-		       //       (char* cmp_cmd, char* cmdStrings[], bool* ret_val)
-		//UART_TransmitString("Proslo\n");
-
-
-*/
 
