@@ -9,14 +9,16 @@
 #include "UART_CommandSystem.h"
 #include "UART.h"
 
+
 extern UART_HandleTypeDef huart1;
+extern char* cmdStrings[];
 
 static uint8_t RxIndex;
 static uint8_t RxData[1];
 static uint8_t RxBuffer[200];
 static bool transferCompleteFlag = false;
-static uint8_t* toSend;
-static char msg[] = "\r\n"; // Just for testing
+
+
 
 void TerminalHandler(UART_HandleTypeDef *huart)
 {
@@ -58,6 +60,7 @@ void TerminalHandler(UART_HandleTypeDef *huart)
 void TerminalInit(UART_HandleTypeDef *huart) //Function reads 1 data byte
 {
 	HAL_UART_Receive_IT(huart, RxData, sizeof(RxData));
+	ClearRxBuffer();
 }
 
 void ClearRxBuffer()
@@ -74,59 +77,46 @@ bool IsTransferComplete()
 	return transferCompleteFlag;
 }
 
-uint8_t* GetRxBuffer()
+char* GetRxBuffer()
 {
-	return RxBuffer;
+	return (char*)RxBuffer;
 }
 
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) //Interrupt function defined by Cube
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) 	//Interrupt function defined by Cube
 {
-	TerminalHandler(huart); //TerminalHandler becomes a callback function
-	if(IsTransferComplete())
-	{
-		toSend = GetRxBuffer();
-		HAL_UART_Transmit(&huart1, toSend, strlen((char*)toSend), HAL_MAX_DELAY);
-		HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
-	}
+	TerminalHandler(huart); 	//TerminalHandler becomes a callback function
+
 }
 
-bool StringCompareFromUART(char* cmp_cmd, char** cmdStrings, const uint8_t array_element, uint8_t* ret_val)
+
+bool StringCompareFromUART(char* cmd_string, char** matrix,  uint16_t numOfStrings, uint16_t* index)
 {
-  bool find = false;
-  bool stop_flag = false;
-  uint8_t iterator = 0;
-  do
-	{
-	  if (((strcmp(cmp_cmd, cmdStrings[iterator])) == 0) && (find == false))
-		{
-		  if(iterator == 0)
-		  {
-			  find = true;
-			  stop_flag = true;
-			  *ret_val = iterator;
 
-			 // return find;
-		  }
-		  *ret_val = iterator;
+	    uint16_t count = 0;
+	    bool foundIt = false;
+	    bool retval;
+	    cmd_string = strupr(cmd_string);
+	    while((count < numOfStrings) && (foundIt == false))
+	    {
 
-		//  printf("Uslo\n");
-		  UART_TransmitString("Uslo\n");
-		//  printf(cmp_cmd);
-		  UART_TransmitFloat((float)iterator);
-	//	  printf("\n");
-		  UART_TransmitString("\n");
-		  find = true;
-		  stop_flag = true;
-		}
-        else
-        {
-            iterator++;
-      //      printf("Nije: %d\n", iterator);
+	        if(strcmp(cmd_string, matrix[count]) == 0)
+	        {
+	            *index = count;
+	            foundIt = true;
 
+	        }
+	        count++;
+	    }
 
-        }
+	    if(foundIt)
+	    {
+	        retval = true;
+	    }
+	    else
+	    {
+	        retval = false;
+	    }
 
-	}while ((stop_flag == false) || (iterator < array_element));
+	    return retval;
 
-    return find;
 }

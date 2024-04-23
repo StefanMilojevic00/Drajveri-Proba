@@ -34,7 +34,7 @@ bool IsTransferComplete();
 
 //@brief Function to return the pointer to the Rx data
 //@retval uint8_t* Pointer to the Rx data
-uint8_t* GetRxBuffer();
+char* GetRxBuffer();
 
 //@brief Functiont to compare a command from Uart with the system command
 //@param cmp_cmd Command from UART
@@ -42,6 +42,6 @@ uint8_t* GetRxBuffer();
 //@param array_element Total number of commands
 //@param ret_val Index of specific command in matrix
 //@retval bool Returns true if the command exists
-bool StringCompareFromUART(char* cmp_cmd, char** cmdStrings, const uint8_t array_element, uint8_t* ret_val);
+bool StringCompareFromUART(char* cmd_string, char** matrix,  uint16_t numOfStrings, uint16_t* index);
 
 #endif /* INC_UART_COMMANDSYSTEM_H_ */
