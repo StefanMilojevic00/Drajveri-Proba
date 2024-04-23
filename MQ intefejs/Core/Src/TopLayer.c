@@ -209,6 +209,8 @@ void AppStart()
 						{
 							UART_TransmitString(AlertMSG);
 							AlarmON();
+							prog_cnt.room_not_safe_flag = true;
+							prog_cnt.cnt_clear_room = 0; //this is a rough implementation, need a fan function to call here
 						}
 						prog_cnt.update_param_flag = false;
 					}
@@ -226,6 +228,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	if(htim == &htim11)
 	{
 		SysTickFlag = true;
+
 
 		//Controling room clearing mechanism////////////////////////////////
 		if((prog_cnt.cnt_clear_room >= prog_cnt.time_clear_room) && (prog_cnt.room_not_safe_flag))

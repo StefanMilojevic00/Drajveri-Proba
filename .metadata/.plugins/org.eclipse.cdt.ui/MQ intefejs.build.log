@@ -1,18 +1,17 @@
-13:18:56 **** Incremental Build of configuration Debug for project MQ intefejs ****
+15:50:09 **** Incremental Build of configuration Debug for project MQ intefejs ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/AirQualityIndicator.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/AirQualityIndicator.d" -MT"Core/Src/AirQualityIndicator.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/AirQualityIndicator.o"
 arm-none-eabi-gcc "../Core/Src/TopLayer.c" -mcpu=cortex-m7 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F750xx -c -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/TopLayer.d" -MT"Core/Src/TopLayer.o" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/TopLayer.o"
-arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Marko.Mandic\Desktop\Project_1_Update_2\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+arm-none-eabi-g++ -o "MQ intefejs.elf" @"objects.list"   -mcpu=cortex-m7 -T"C:\Users\Stevan.Milojevic\Desktop\Praksa2024\Drajveri-Proba\MQ intefejs\STM32F750N8HX_FLASH.ld" --specs=nosys.specs -Wl,-Map="MQ intefejs.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: MQ intefejs.elf
  
 arm-none-eabi-size  MQ\ intefejs.elf 
 arm-none-eabi-objdump -h -S MQ\ intefejs.elf  > "MQ intefejs.list"
    text	   data	    bss	    dec	    hex	filename
-  48132	    856	   2528	  51516	   c93c	MQ intefejs.elf
+  48140	    856	   2528	  51524	   c944	MQ intefejs.elf
 Finished building: default.size.stdout
  
 Finished building: MQ intefejs.list
  
 
-13:18:58 Build Finished. 0 errors, 0 warnings. (took 1s.993ms)
+15:50:10 Build Finished. 0 errors, 0 warnings. (took 1s.400ms)
 
